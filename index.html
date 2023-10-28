@@ -15,6 +15,49 @@
 	</head>
 	<body id="top">
 
+		<!-- Style -->
+
+		<style>
+			
+			/* Style the tab */
+			.tab {
+			  overflow: hidden;
+			  border: 1px solid #ccc;
+			  background-color: #f1f1f1;
+			}
+			
+			/* Style the buttons inside the tab */
+			.tab button {
+			  background-color: inherit;
+			  float: left;
+			  border: none;
+			  outline: none;
+			  cursor: pointer;
+			  padding: 14px 16px;
+			  transition: 0.3s;
+			  font-size: 17px;
+			}
+			
+			/* Change background color of buttons on hover */
+			.tab button:hover {
+			  background-color: #ddd;
+			}
+			
+			/* Create an active/current tablink class */
+			.tab button.active {
+			  background-color: #ccc;
+			}
+			
+			/* Style the tab content */
+			.tabcontent {
+			  display: none;
+			  padding: 6px 12px;
+			  border: 1px solid #ccc;
+			  border-top: none;
+			}
+		</style>
+
+		
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
@@ -48,10 +91,11 @@
 
 						<p>For fun, I love to curate playlists, watch and play basketball, and choreograph and dance bhangra, 
 						and listen to podcasts on history and understanding the neuroscience behind different behaviors and our decision 
-						making process! <br> <br>PM in Social Impact x Tech <br> Ex-SWE @ Amazon <br>BA Computer Science, 
-						Columbia University 2019
+						making process!
 						</p>
-                        </p>
+						
+						<br> <br> PM in Social Impact x Tech <br> Ex-SWE @ Amazon <br>BA Computer Science, 
+						Columbia University 2019
 					</section>
 
 				<!-- Two -->
@@ -108,91 +152,30 @@
 							<ul class="actions">
 								<li><a href="#" class="button">Full Portfolio</a></li>
 							</ul>
-
-			</div>
-
-
-			<div id="Work Experiences" class="tabcontent">
-                          <h3>Work Experiences</h3>
-                          <p>Information about work experiences..</p>
-                        </div>
-                                                
-                        <div id="Community Involvement" class="tabcontent">
-                          <h3>Community Inovlvement</h3>
-                          <p>Informaiton about community involvement.</p>
-                        </div>
-
-			<div id="Bhangra Dance Vault" class="tabcontent">
-			  <h3>Bhangra Dance Vault</h3>
-			  <p>Information about bhangra dance vault videos.</p>
-			</div>
-
-			<div id="Photography" class="tabcontent">
-			  <h3>Photography</h3>
-			  <p>Information about photography</p>
-			</div>
+						</div>
 
 
+						<div id="Work Experiences" class="tabcontent">
+							<h3>Work Experiences</h3>
+							<p>Information about work experiences..</p>
+						</div>
+															
+						<div id="Community Involvement" class="tabcontent">
+							<h3>Community Inovlvement</h3>
+							<p>Informaiton about community involvement.</p>
+						</div>
 
-			/* Style the tab */
-			.tab {
-			  overflow: hidden;
-			  border: 1px solid #ccc;
-			  background-color: #f1f1f1;
-			}
+						<div id="Bhangra Dance Vault" class="tabcontent">
+							<h3>Bhangra Dance Vault</h3>
+							<p>Information about bhangra dance vault videos.</p>
+						</div>
 
-			/* Style the buttons that are used to open the tab content */
-			.tab button {
-			  background-color: inherit;
-			  float: left;
-			  border: none;
-			  outline: none;
-			  cursor: pointer;
-			  padding: 14px 16px;
-			  transition: 0.3s;
-			}
+						<div id="Photography" class="tabcontent">
+							<h3>Photography</h3>
+							<p>Information about photography</p>
+						</div>
 
-			/* Change background color of buttons on hover */
-			.tab button:hover {
-			  background-color: #ddd;
-			}
-
-
-			/* Create an active/current tablink class */
-			.tab button.active {
-			  background-color: #ccc;
-			}
-
-			/* Style the tab content */
-			.tabcontent {
-			  display: none;
-			  padding: 6px 12px;
-			  border: 1px solid #ccc;
-			  border-top: none;
-			}
-
-			function openCity(evt, cityName) {
-			  // Declare all variables
-			  var i, tabcontent, tablinks;
-
-			  // Get all elements with class="tabcontent" and hide them
-			  tabcontent = document.getElementsByClassName("tabcontent");
-			  for (i = 0; i < tabcontent.length; i++) {
-			    tabcontent[i].style.display = "none";
-			  }
-
-			  // Get all elements with class="tablinks" and remove the class "active"
-			  tablinks = document.getElementsByClassName("tablinks");
-			  for (i = 0; i < tablinks.length; i++) {
-			    tablinks[i].className = tablinks[i].className.replace(" active", "");
-			  }
-
-			  // Show the current tab, and add an "active" class to the button that opened the tab
-			  document.getElementById(cityName).style.display = "block";
-			  evt.currentTarget.className += " active";
-			}
-                        -->
-					</section>
+				</section>
 
 				<!-- Three -->
 					<section id="three">
@@ -548,8 +531,9 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				<div class="inner">
 					<ul class="icons">
 						<li><strong>
-<a href="https://www.linkedin.com/in/akandola/" class="icon fa-linkedin"><span class="label">LinkedIn</span>
-</strong></a></li>
+						<a href="https://www.linkedin.com/in/akandola/" class="icon fa-linkedin"><span class="label">LinkedIn</span>
+						</strong>
+						</a></li>
 					</ul>
 					<ul class="copyright">
 					</ul>
@@ -564,5 +548,21 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
 
+			<script>
+				function openCity(evt, cityName) {
+				  var i, tabcontent, tablinks;
+				  tabcontent = document.getElementsByClassName("tabcontent");
+				  for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				  }
+				  tablinks = document.getElementsByClassName("tablinks");
+				  for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				  }
+				  document.getElementById(cityName).style.display = "block";
+				  evt.currentTarget.className += " active";
+				}
+			</script>
+			
 	</body>
 </html>
