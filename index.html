@@ -103,11 +103,11 @@
 						
 						<!-- Tab links -->
 						<div class="tab">
-						  <button class="tablinks" onclick="openCity(event, 'Research')">Neuroscience Research Projects</button>
-						  <button class="tablinks" onclick="openCity(event, 'Work Experiences')">Work Experiences</button>
-						  <button class="tablinks" onclick="openCity(event, 'Community Involvement')">Community Involvement</button>
-  						  <button class="tablinks" onclick="openCity(event, 'Bhangra Dance Vault')">Bhangra Dance Vault</button>
-  						  <button class="tablinks" onclick="openCity(event, 'Photography')">Photography</button>
+						  <button class="tablinks" onclick="openTab(event, 'Research')">Neuroscience Research Projects</button>
+						  <button class="tablinks" onclick="openTab(event, 'Work Experiences')">Work Experiences</button>
+						  <button class="tablinks" onclick="openTab(event, 'Community Involvement')">Community Involvement</button>
+  						  <button class="tablinks" onclick="openTab(event, 'Bhangra Dance Vault')">Bhangra Dance Vault</button>
+  						  <button class="tablinks" onclick="openTab(event, 'Photography')">Photography</button>
 						</div>
 
 						<!-- Tab content -->
@@ -530,10 +530,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<footer id="footer">
 				<div class="inner">
 					<ul class="icons">
-						<strong><li>
+						<strong><b><li>
 						<a href="https://www.linkedin.com/in/akandola/" class="icon fa-linkedin"><span class="label">LinkedIn</span>
 						</a>
-						</li></strong>
+						</li></b></strong>
 					</ul>
 					<ul class="copyright">
 					</ul>
@@ -549,7 +549,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 
 			<script>
-				function openCity(evt, cityName) {
+				function openTab(evt, cityName) {
 				  var i, tabcontent, tablinks;
 				  tabcontent = document.getElementsByClassName("tabcontent");
 				  for (i = 0; i < tabcontent.length; i++) {
