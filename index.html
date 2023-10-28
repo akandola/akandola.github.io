@@ -39,24 +39,40 @@
 						and products to scale access to critical resources for underserved communitiess. At Justicia Lab, the organization I 
 						currently work at, I'm co-creating alongside asylum seekers and legal aid advocates to build toolds for immigration 
 						justice, from federal policy update trackers, universal intake tools, and wage theft recovery support.
-						</p> <br>
+						</p>
 
 						<p>Outside of work, I like to get involved in local and grass roots organized movements, from volunteering on 
 						city council campaigns, collecting census data, and participating in public hearings for legislature affecting 
 						my friends and family.
-						</p> <br>
+						</p>
 
 						<p>For fun, I love to curate playlists, watch and play basketball, and choreograph and dance bhangra, 
 						and listen to podcasts on history and understanding the neuroscience behind different behaviors and our decision 
 						making process! <br> <br>PM in Social Impact x Tech <br> Ex-SWE @ Amazon <br>BA Computer Science, 
-						Columbia University (2019)
+						Columbia University 2019
 						</p>
                         </p>
 					</section>
 
 				<!-- Two -->
 					<section id="two">
-						<h2>Some Projects</h2>
+						
+						<!-- Tab links -->
+						<div class="tab">
+						  <button class="tablinks" onclick="openTab(event, 'Research')">Neuroscience Research Projects</button>
+						  <button class="tablinks" onclick="openTab(event, 'Work Experiences')">Work Experiences</button>
+						  <button class="tablinks" onclick="openTab(event, 'Community Invovlement')">Community Involvement</button>
+  						  <button class="tablinks" onclick="openTab(event, 'Bhangra Dance Vault')">Bhangra Dance Vault</button>
+  						  <button class="tablinks" onclick="openTab(event, 'Photography')">Photography</button>
+						</div>
+
+						<!-- Tab content -->
+						<div id="Neuroscience Research" class="tabcontent">
+  						  <h3>Neuroscience Research</h3>
+  						  <p>London is the capital city of England.</p>
+						</div>						
+
+						<h3>Past Projects & Lab Involvement</h3>
 						<div class="row">
 							<article class="6u 12u$(xsmall) work-item">
 								<a href="images/fulls/01.jpg" class="image fit thumb"><img src="images/thumbs/01.jpg" alt="" /></a>
@@ -65,7 +81,7 @@
 							</article>
 							<article class="6u$ 12u$(xsmall) work-item">
 								<a href="images/fulls/02.jpg" class="image fit thumb"><img src="images/thumbs/02.jpg" alt="" /></a>
-								<h3>FoodStore (COMING SOON)</h3>
+							<h3>FoodStore (COMING SOON)</h3>
 								<p>Developing a data scraper which collects ingredients needed to make meals and store them in a database.</p>
 							</article>
 							<article class="6u 12u$(xsmall) work-item">
@@ -96,13 +112,94 @@
 						<ul class="actions">
 							<li><a href="#" class="button">Full Portfolio</a></li>
                         </ul>
+
+
+			<div id="Work Experiences" class="tabcontent">
+                          <h3>Work Experiences</h3>
+                          <p>Information about work experiences..</p>
+                        </div>
+                                                
+                        <div id="Community Involvement" class="tabcontent">
+                          <h3>Community Inovlvement</h3>
+                          <p>Informaiton about community involvement.</p>
+                        </div>
+
+			<div id="Bhangra Dance Vault" class="tabcontent">
+			  <h3>Bhangra Dance Vault</h3>
+			  <p>Information about bhangra dance vault videos.</p>
+			</div>
+
+			<div id="Photography" class="tabcontent">
+			  <h3>Photography</h3>
+			  <p>Information about photography</p>
+			</div>
+
+
+
+			/* Style the tab */
+			.tab {
+			  overflow: hidden;
+			  border: 1px solid #ccc;
+			  background-color: #f1f1f1;
+			}
+
+			/* Style the buttons that are used to open the tab content */
+			.tab button {
+			  background-color: inherit;
+			  float: left;
+			  border: none;
+			  outline: none;
+			  cursor: pointer;
+			  padding: 14px 16px;
+			  transition: 0.3s;
+			}
+
+			/* Change background color of buttons on hover */
+			.tab button:hover {
+			  background-color: #ddd;
+			}
+
+
+			/* Create an active/current tablink class */
+			.tab button.active {
+			  background-color: #ccc;
+			}
+
+			/* Style the tab content */
+			.tabcontent {
+			  display: none;
+			  padding: 6px 12px;
+			  border: 1px solid #ccc;
+			  border-top: none;
+			}
+
+			function openTab(evt, cityName) {
+			  // Declare all variables
+			  var i, tabcontent, tablinks;
+
+			  // Get all elements with class="tabcontent" and hide them
+			  tabcontent = document.getElementsByClassName("tabcontent");
+			  for (i = 0; i < tabcontent.length; i++) {
+			    tabcontent[i].style.display = "none";
+			  }
+
+			  // Get all elements with class="tablinks" and remove the class "active"
+			  tablinks = document.getElementsByClassName("tablinks");
+			  for (i = 0; i < tablinks.length; i++) {
+			    tablinks[i].className = tablinks[i].className.replace(" active", "");
+			  }
+
+			  // Show the current tab, and add an "active" class to the button that opened the tab
+			  document.getElementById(cityName).style.display = "block";
+			  evt.currentTarget.className += " active";
+			}
                         -->
 					</section>
 
 				<!-- Three -->
 					<section id="three">
 						<h2>Get In Touch</h2>
-						<p> If you have a question, an idea, or an opportunity, please send me an email. I'm always down to collaborate!</p>
+						<p> If you have a question, an idea, or an opportunity, please send me an email. I'm always open to collaborate!</p>
 						<div class="row">
 							<div class="8u 12u$(small)">
                                 <!--
