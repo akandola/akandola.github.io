@@ -25,9 +25,28 @@
 			  border: 1px solid #ccc;
 			  background-color: #f1f1f1;
 			}
+
+			/* Style the dance tab */
+			.tabDanceVids {
+			  overflow: hidden;
+			  border: 1px solid #ccc;
+			  background-color: #f1f1f1;
+			}
 			
 			/* Style the buttons inside the tab */
 			.tab button {
+			  background-color: inherit;
+			  float: left;
+			  border: none;
+			  outline: none;
+			  cursor: pointer;
+			  padding: 14px 16px;
+			  transition: 0.3s;
+			  font-size: 17px;
+			}
+
+			/* Style the dancebuttons inside the dance tab */
+			.tabDanceVids button {
 			  background-color: inherit;
 			  float: left;
 			  border: none;
@@ -42,14 +61,32 @@
 			.tab button:hover {
 			  background-color: #ddd;
 			}
+
+			/* Change background color of buttons on hover for dance vids*/
+			.tabDanceVids button:hover {
+			  background-color: #ddd;
+			}
 			
 			/* Create an active/current tablink class */
 			.tab button.active {
 			  background-color: #ccc;
 			}
-			
+
+			/* Create an active/current tablink class for dance vids */
+			.tabDanceVids button.active {
+			  background-color: #ccc;
+			}
+
 			/* Style the tab content */
 			.tabcontent {
+			  display: none;
+			  padding: 6px 12px;
+			  border: 1px solid #ccc;
+			  border-top: none;
+			}
+
+			/* Style the dance tab content */
+			.tabDanceContent {
 			  display: none;
 			  padding: 6px 12px;
 			  border: 1px solid #ccc;
@@ -160,25 +197,81 @@
 
 						<div id="Bhangra Dance Vault" class="tabcontent">
 							<h3>Bhangra Dance Videos</h3>
-							<div class="row4">
-								<article class="bhangra-ankhi-jawan-10-23">
-									<a href="https://youtube.com/shorts/ibWqrv3vwLA" class="image fit thumb"><img src="images/thumbs/ankhi-sher-jawan-thumbnail.png" alt="" /></a>
-									<h3>Ankhi Sher Jawan Mix (October 2023)</h3>
-									<p>New choreography and ending to a competetive mix from the spring 2023 season!</p>
-								</article>
-								<article class="bhangra-mexico-city-05-22">
-									<a href="https://www.youtube.com/watch?v=DBP-27nsknc" class="image fit thumb"><img src="images/thumbs/bhangra-cdmx-thumbnail.png" alt="" /></a>
-									<h3>Bhangra in Ciudad de México (May 2022)</h3>
-									<p>Impromptu choreo in CDMX, near Plaza de lectura José Saramago in the Condesa neighborhood.</p>
-								</article>
-								<article class="bhangra-alumni-routine-03-20">
-									<a href="https://youtu.be/MzveXp5ohjU" class="image fit thumb"><img src="images/thumbs/alumni-routine-2020-thumbnail.png" alt="" /></a>
-									<h3>Bhangra in the Heights XIII: Columbia Bhangra Alumni Routine (March 2020)</h3>
-									<p>I coordinated the alumni choreography, performance and video editing for the first ever virtual Bhangra in the Heights showcase, 
-										annually held on campus at Columbia in morningside heights. While being socially distanced or masked, 20 alumni from around the 
-										country came together during the pandemic wanting to contribute to our showcase, where proceeds would be donated to the farmer's 
-										protest going on in India at the time. I am the dancer in the New Jersey video in a white crew neck sweater.</p>
-								</article>
+							<div class="tabDanceVids">
+								<button class="tabDancelinks" onclick="openTab(event, 'Personal Choreography')">Personal Choreography</button>
+								<button class="tabDancelinks" onclick="openTab(event, 'Competition Performances')">Competition Performances</button>
+								<button class="tabDancelinks" onclick="openTab(event, 'Gigs and Practice Videos')">Gigs and Practice Videos</button>
+							</div>
+
+							<div id="Personal Choreography" class="tabDanceContent">
+								<div class="row4">
+									<article class="bhangra-ankhi-jawan-10-23">
+										<a href="https://youtube.com/shorts/ibWqrv3vwLA" class="image fit thumb"><img src="images/thumbs/ankhi-sher-jawan-thumbnail.png" alt="" /></a>
+										<h3>Ankhi Sher Jawan Mix (October 2023)</h3>
+										<p>New choreography and ending to a competetive mix from the spring 2023 season!</p>
+									</article>
+									<article class="bhangra-mexico-city-05-22">
+										<a href="https://www.youtube.com/watch?v=DBP-27nsknc" class="image fit thumb"><img src="images/thumbs/bhangra-cdmx-thumbnail.png" alt="" /></a>
+										<h3>Bhangra in Ciudad de México (May 2022)</h3>
+										<p>Impromptu choreo in CDMX, near Plaza de lectura José Saramago in the Condesa neighborhood.</p>
+									</article>
+									<article class="bhangra-alumni-routine-03-20">
+										<a href="https://youtu.be/MzveXp5ohjU" class="image fit thumb"><img src="images/thumbs/alumni-routine-2020-thumbnail.png" alt="" /></a>
+										<h3>Bhangra in the Heights XIII: Columbia Bhangra Alumni Routine (March 2020)</h3>
+										<p>I coordinated the alumni choreography, performance and video editing for the first ever virtual Bhangra in the Heights showcase, 
+											annually held on campus at Columbia in morningside heights. While being socially distanced or masked, 20 alumni from around the 
+											country came together during the pandemic wanting to contribute to our showcase, where proceeds would be donated to the farmer's 
+											protest going on in India at the time. I am the dancer in the New Jersey video in a white crew neck sweater.</p>
+									</article>
+								</div>
+							</div>
+
+
+							<div id="Competition Performances" class="tabDanceContent">
+								<div class="row4">
+									<article class="bhangra-blitz-02-2019">
+										<a href="https://youtu.be/7x99UF1gg5k" class="image fit thumb"><img src="images/thumbs/ankhi-sher-jawan-thumbnail.png" alt="" /></a>
+										<h3>Bhangra Blitz: 4th place (Dallas, TX | February 2019)</h3>
+										<p>We traveled and competed in Dallas during my senior year and second year as captain of CU Bhangra. I am the male dancer in the red!</p>
+									</article>
+									<article class="bhangra-mexico-city-05-22">
+										<a href="https://www.youtube.com/watch?v=DBP-27nsknc" class="image fit thumb"><img src="images/thumbs/bhangra-cdmx-thumbnail.png" alt="" /></a>
+										<h3>Bhangra in Ciudad de México (May 2022)</h3>
+										<p>Impromptu choreo in CDMX, near Plaza de lectura José Saramago in the Condesa neighborhood.</p>
+									</article>
+									<article class="bhangra-alumni-routine-03-20">
+										<a href="https://youtu.be/MzveXp5ohjU" class="image fit thumb"><img src="images/thumbs/alumni-routine-2020-thumbnail.png" alt="" /></a>
+										<h3>Bhangra in the Heights XIII: Columbia Bhangra Alumni Routine (March 2020)</h3>
+										<p>I coordinated the alumni choreography, performance and video editing for the first ever virtual Bhangra in the Heights showcase, 
+											annually held on campus at Columbia in morningside heights. While being socially distanced or masked, 20 alumni from around the 
+											country came together during the pandemic wanting to contribute to our showcase, where proceeds would be donated to the farmer's 
+											protest going on in India at the time. I am the dancer in the New Jersey video in a white crew neck sweater.</p>
+									</article>
+								</div>
+							</div>
+
+
+							<div id="Gigs and Practice Videos" class="tabDanceContent">
+								<div class="row4">
+									<article class="bhangra-ankhi-jawan-10-23">
+										<a href="https://youtube.com/shorts/ibWqrv3vwLA" class="image fit thumb"><img src="images/thumbs/ankhi-sher-jawan-thumbnail.png" alt="" /></a>
+										<h3>Ankhi Sher Jawan Mix (October 2023)</h3>
+										<p>New choreography and ending to a competetive mix from the spring 2023 season!</p>
+									</article>
+									<article class="bhangra-mexico-city-05-22">
+										<a href="https://www.youtube.com/watch?v=DBP-27nsknc" class="image fit thumb"><img src="images/thumbs/bhangra-cdmx-thumbnail.png" alt="" /></a>
+										<h3>Bhangra in Ciudad de México (May 2022)</h3>
+										<p>Impromptu choreo in CDMX, near Plaza de lectura José Saramago in the Condesa neighborhood.</p>
+									</article>
+									<article class="bhangra-alumni-routine-03-20">
+										<a href="https://youtu.be/MzveXp5ohjU" class="image fit thumb"><img src="images/thumbs/alumni-routine-2020-thumbnail.png" alt="" /></a>
+										<h3>Bhangra in the Heights XIII: Columbia Bhangra Alumni Routine (March 2020)</h3>
+										<p>I coordinated the alumni choreography, performance and video editing for the first ever virtual Bhangra in the Heights showcase, 
+											annually held on campus at Columbia in morningside heights. While being socially distanced or masked, 20 alumni from around the 
+											country came together during the pandemic wanting to contribute to our showcase, where proceeds would be donated to the farmer's 
+											protest going on in India at the time. I am the dancer in the New Jersey video in a white crew neck sweater.</p>
+									</article>
+								</div>
 							</div>
 						</div>
 
