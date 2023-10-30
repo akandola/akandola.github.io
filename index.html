@@ -200,7 +200,7 @@
 						<div id="Bhangra Dance Vault" class="tabcontent">
 							<h3>Bhangra Dance Videos</h3>
 							<div class="tabDanceVids">
-								<button class="tabDanceLinks" id="pc" onclick="openDanceTab(event, 'Personal Choreography')">Personal Choreography</button>
+								<button class="tabDanceLinks" id="defaultOpen" onclick="openDanceTab(event, 'Personal Choreography')">Personal Choreography</button>
 								<button class="tabDanceLinks" onclick="openDanceTab(event, 'Competition Performances')">Competition Performances</button>
 								<button class="tabDanceLinks" onclick="openDanceTab(event, 'Gigs and Practice Videos')">Gigs and Practice Videos</button>
 							</div>
@@ -778,6 +778,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 				  document.getElementById(cityName).style.display = "block";
 				  evt.currentTarget.className += " active";
 				}
+				document.getElementById("defaultOpen").click();
 			</script>
 			
 	</body>
