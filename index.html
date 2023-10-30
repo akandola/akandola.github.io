@@ -56,15 +56,24 @@
 			  border-top: none;
 			}
 
-			/* Hover text prompting to scroll */
-			.scroll-to-see-text {
-				display: none;
+			.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 120px;
+			background-color: black;
+			color: #fff;
+			text-align: center;
+			border-radius: 6px;
+			padding: 5px 0;
+			
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+			top: -5px;
+			left: 105%;
 			}
 
-			/* Container text to hover over */
-			.mainText:hover .scroll-to-see-text {
-				display: block;
-				color: black;
+			.tooltip:hover .tooltiptext {
+			visibility: visible;
 			}
 		</style>
 
@@ -91,7 +100,7 @@
 						<header class="major">
 							<h2>A bit about me:</h2>
 						</header>
-						<div class="mainText"> 
+						<div class="tooltip"> 
 							<p>With a background in research, software engineering and product management, I enjoy building platforms 
 							and products to scale access to critical resources for underserved communitiess. At Justicia Lab, the organization I 
 							currently work at, I'm co-creating alongside asylum seekers and legal aid advocates to build toolds for immigration 
@@ -110,11 +119,10 @@
 							
 							PM in Social Impact x Tech <br> Ex-SWE @ Amazon <br>BA Computer Science, 
 							Columbia University 2019
+
+							<span class="tooltiptext">Scroll to see some projects and videos!</span>
 						</div>
 
-						<div class="scroll-to-see-text">
-							Scroll to see some projects and videos!
-						</div>
 					</section>
 
 				<!-- Two -->
