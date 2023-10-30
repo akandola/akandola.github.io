@@ -198,9 +198,9 @@
 						<div id="Bhangra Dance Vault" class="tabcontent">
 							<h3>Bhangra Dance Videos</h3>
 							<div class="tabDanceVids">
-								<button class="tablinks" onclick="openTab(event, 'Personal Choreography')">Personal Choreography</button>
-								<button class="tablinks" onclick="openTab(event, 'Competition Performances')">Competition Performances</button>
-								<button class="tablinks" onclick="openTab(event, 'Gigs and Practice Videos')">Gigs and Practice Videos</button>
+								<button class="tabDanceLinks" onclick="openDanceTab(event, 'Personal Choreography')">Personal Choreography</button>
+								<button class="tabDanceLinks" onclick="openDanceTab(event, 'Competition Performances')">Competition Performances</button>
+								<button class="tabDanceLinks" onclick="openDanceTab(event, 'Gigs and Practice Videos')">Gigs and Practice Videos</button>
 							</div>
 
 							<div id="Personal Choreography" class="tabDanceContent">
@@ -661,6 +661,20 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					tabcontent[i].style.display = "none";
 				  }
 				  tablinks = document.getElementsByClassName("tablinks");
+				  for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				  }
+				  document.getElementById(cityName).style.display = "block";
+				  evt.currentTarget.className += " active";
+				}
+
+				function openDanceTab(evt, cityName) {
+				  var i, tabcontent, tablinks;
+				  tabcontent = document.getElementsByClassName("tabDanceContent");
+				  for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				  }
+				  tablinks = document.getElementsByClassName("tabDanceLinks");
 				  for (i = 0; i < tablinks.length; i++) {
 					tablinks[i].className = tablinks[i].className.replace(" active", "");
 				  }
