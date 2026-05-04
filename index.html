@@ -1,871 +1,928 @@
-<!DOCTYPE HTML>
-<!--
-	Strata by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-6FMLR1V9EX"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6FMLR1V9EX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6FMLR1V9EX');
+  </script>
 
-			gtag('config', 'G-6FMLR1V9EX');
-		</script>
-		<title>Anmolpreet Kandola: Personal Website</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body id="top">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anmol Kandola</title>
 
-		<!-- Style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-		<style>
-			
-			/* Style the tab */
-			.tab {
-			  overflow: hidden;
-			  border: 1px solid #ccc;
-			  background-color: #f1f1f1;
-			}
+  <style>
+    /* ── Design tokens ── */
+    :root {
+      --paper:       #F4EFE6;
+      --paper-2:     #ECE6DA;
+      --paper-3:     #E2DBCC;
+      --ink:         #1A1714;
+      --ink-2:       #3B342C;
+      --muted:       #8A8278;
+      --muted-2:     #B5AC9E;
+      --rule:        #C9C0B0;
+      --rule-2:      #D9D1C2;
+      --accent:      oklch(0.58 0.14 50);
+      --display:     "Instrument Serif", "Fraunces", Georgia, serif;
+      --serif:       "Fraunces", Georgia, serif;
+      --sans:        "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      --mono:        "JetBrains Mono", ui-monospace, Menlo, monospace;
+    }
 
-			/* Style the dance tab */
-			.tabDanceVids {
-			  overflow: hidden;
-			  border: 1px solid #ccc;
-			  background-color: #f1f1f1;
-			}
-			
-			/* Style the buttons inside the tab */
-			.tab button {
-			  background-color: inherit;
-			  float: left;
-			  border: none;
-			  outline: none;
-			  cursor: pointer;
-			  padding: 14px 16px;
-			  transition: 0.3s;
-			  font-size: 17px;
-			}
+    /* ── Reset / base ── */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+    }
+    a { color: inherit; }
+    h1, h2, h3 { margin: 0; font-weight: 400; }
+    p { margin: 0; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    button { cursor: pointer; }
 
-			/* Style the dancebuttons inside the dance tab */
-			.tabDanceVids button {
-			  background-color: inherit;
-			  float: left;
-			  border: none;
-			  outline: none;
-			  cursor: pointer;
-			  padding: 14px 16px;
-			  transition: 0.3s;
-			  font-size: 17px;
-			}
-			
-			/* Change background color of buttons on hover */
-			.tab button:hover {
-			  background-color: #ddd;
-			}
+    /* ── Grain overlay ── */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.032;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+      z-index: 9999;
+    }
 
-			/* Change background color of buttons on hover for dance vids*/
-			.tabDanceVids button:hover {
-			  background-color: #ddd;
-			}
-			
-			/* Create an active/current tablink class */
-			.tab button.active {
-			  background-color: #ccc;
-			}
+    /* ── Animations ── */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.7; transform: scale(1.15); }
+    }
 
-			/* Create an active/current tablink class for dance vids */
-			.tabDanceVids button.active {
-			  background-color: #ccc;
-			}
+    /* ── Sticky nav ── */
+    .site-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      border-bottom: 1px solid var(--rule-2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in oklch, var(--paper) 92%, transparent);
+      backdrop-filter: blur(8px);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    .brand-mark {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--display);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .brand-sep  { color: var(--rule); }
+    .brand-name { color: var(--ink-2); }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--ink);
+      background: var(--paper-2);
+    }
 
-			/* Style the tab content */
-			.tabcontent {
-			  display: none;
-			  padding: 6px 12px;
-			  border: 1px solid #ccc;
-			  border-top: none;
-			}
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(260px, 360px) 1fr;
+      gap: 64px;
+      padding: 72px 48px 64px;
+      align-items: center;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .hero-photo-frame {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--paper-3);
+    }
+    .hero-photo {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: sepia(0.15) saturate(1.05);
+      display: block;
+    }
+    .hero-photo-tag {
+      position: absolute;
+      bottom: 16px; left: 16px;
+      background: color-mix(in oklch, var(--paper) 85%, transparent);
+      backdrop-filter: blur(8px);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.04em;
+    }
+    .hero-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in oklch, var(--accent) 25%, transparent);
+    }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(52px, 6.5vw, 96px);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero-para {
+      font-family: var(--display);
+      font-size: 22px;
+      line-height: 1.45;
+      color: var(--ink-2);
+      max-width: 620px;
+      text-wrap: pretty;
+    }
+    .inline-link {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-ghost {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--ink);
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+    }
+    .btn-ghost:hover { background: var(--paper-2); }
 
-			/* Style the dance tab content */
-			.tabDanceContent {
-			  display: none;
-			  padding: 6px 12px;
-			  border: 1px solid #ccc;
-			  border-top: none;
-			}
-		</style>
+    /* ── Section header pattern ── */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--ink);
+      flex-wrap: wrap;
+    }
+    .section-num {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--accent);
+    }
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .section-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
 
-		
-		<!-- Header -->
-			<header id="header">
-				<div class="header-avatar">
-					<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
-				</div>
-				<div class="header-text">
-					<h1><strong>Hi, my name is Anmol and I'm interested in building digital tools to improve the quality of peoples lives and bridge 
-                                        resource gaps. I'm currently an MBA student at Harvard Business School. Previously, I worked as a PM at Schmidt Futures, where I rotated 
-					at startups and non-profits working in the social impact space, as an APM at EliseAI, and as a SWE at Amazon. Check out my LinkedIn below! </strong>
-					</a></h1>
-				</div>
-			</header>
+    /* ── Now ── */
+    .now-section {
+      padding: 48px 48px 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .live-pill {
+      margin-left: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .live-dot {
+      display: inline-block;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .now-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 14px 32px;
+    }
+    .now-item {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-family: var(--display);
+      font-size: 22px;
+      color: var(--ink-2);
+      line-height: 1.4;
+    }
+    .checkbox {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--accent);
+      width: 24px; height: 24px;
+      border-radius: 4px;
+      border: 1px solid var(--rule);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
 
-		<!-- Main -->
-			<div id="main">
+    /* ── About ── */
+    .about-section {
+      padding: 48px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .about-row {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 32px;
+      margin-bottom: 24px;
+      align-items: baseline;
+    }
+    .about-margin {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .about-para {
+      font-family: var(--display);
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--ink-2);
+      text-wrap: pretty;
+      max-width: 800px;
+    }
 
-				<!-- One -->
-					<section id="one">
-						<header class="major">
-							<h2>A bit about me:</h2>
-						</header>
-							<p>With a background in research, software engineering and product management, I enjoy working with diverse stakeholders
-							to build platforms and products to solve for customer pain-points. In the past, I've built for a variety
-							of users, from CRM integrations for real-estate companies, benefit delivery platforms for senior citizens, to wage theft reclamation and case
-							intake tools for asylum seekers and legal aid advocates. 
-							</p>
+    /* ── Lane ── */
+    .lane {
+      padding: 48px 0 24px;
+      max-width: 1480px;
+      margin: 0 auto;
+    }
+    .lane-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0 48px 24px;
+      border-bottom: 1px solid var(--ink);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .lane-head-left {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .lane-nav { display: flex; gap: 8px; }
+    .lane-arrow {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--rule);
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--display);
+      font-size: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .lane-arrow:hover { background: var(--paper-2); border-color: var(--rule); }
+    .lane-track {
+      display: flex;
+      gap: 18px;
+      padding: 4px 48px 32px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .lane-track::-webkit-scrollbar { display: none; }
 
-							<p>Outside of work, I like to get involved in local and grass roots organized movements, from volunteering on 
-							city council campaigns, collecting census data, to participating in public hearings for legislature affecting 
-							my friends and family.
-							</p>
+    /* ── Card ── */
+    .card {
+      flex: 0 0 340px;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: var(--ink);
+      scroll-snap-align: start;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid color-mix(in oklch, var(--ink) 6%, transparent);
+    }
+    a.card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px -16px rgba(26,23,20,0.25);
+    }
+    .card-thumb {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .thumb-cover {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .thumb-contain {
+      max-width: 60%; max-height: 60%;
+      object-fit: contain;
+      display: block;
+    }
+    .thumb-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .thumb-mark {
+      font-family: var(--display);
+      font-size: 80px;
+      font-style: italic;
+      color: color-mix(in oklch, var(--paper) 60%, transparent);
+      line-height: 1;
+    }
+    .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.25) 100%);
+    }
+    .play-icon {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: color-mix(in oklch, var(--paper) 92%, transparent);
+      backdrop-filter: blur(6px);
+      color: var(--ink);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 4px;
+    }
+    .badge {
+      position: absolute;
+      top: 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .badge-featured {
+      left: 12px;
+      background: var(--accent);
+      color: var(--paper);
+    }
+    .badge-soon {
+      right: 12px;
+      background: rgba(245,240,230,0.95);
+      color: #1A1714;
+      border: 1px solid rgba(26,23,20,0.18);
+      letter-spacing: 0.12em;
+    }
+    .card-body {
+      padding: 16px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .card-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .card-year {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--ink-2);
+    }
+    .card-arrow {
+      font-family: var(--display);
+      font-size: 18px;
+      color: var(--ink-2);
+    }
+    .card-title {
+      font-family: var(--display);
+      font-size: 26px;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 2px 0 0;
+    }
+    .card-sub {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-2);
+    }
+    .card-blurb {
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--ink-2);
+      margin-top: 6px;
+    }
 
-							<p>For fun, I love to curate playlists and discover new music, watch and play basketball, choreograph and dance bhangra, 
-							and listen to podcasts on history and tech trends!
-							</p>
-							
-							Current MBA Student, Harvard Business School <br>
-							Ex-PM @ Uno Health, Conservation X Labs, JusticiaLab and EliseAI <br> Ex-SWE @ Amazon, Tagup 
-							<br>BA Computer Science, 
-							<a href="https://youtu.be/rWfAm8QesrM?t=9609">
-								Columbia University
-							</a> 
-							
-							<br><br><br><strong><font color="black">Scroll to see some projects and videos!</font></strong>
+    /* ── Contact ── */
+    .contact-section {
+      padding: 64px 48px 32px;
+      max-width: 1280px;
+      margin: 0 auto;
+      border-top: 1px solid var(--rule-2);
+    }
+    .contact-lede {
+      font-family: var(--display);
+      font-size: 22px;
+      color: var(--ink-2);
+      max-width: 600px;
+      line-height: 1.4;
+      margin-top: -12px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .contact-card {
+      padding: 20px 24px;
+      border: 1px solid var(--rule-2);
+      border-radius: 6px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: var(--paper-2);
+      transition: background 0.15s;
+    }
+    .contact-card:hover { background: var(--paper-3); }
+    .contact-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .contact-value {
+      font-family: var(--display);
+      font-size: 22px;
+      color: var(--ink);
+    }
+    .colophon {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      padding-top: 32px;
+      margin-top: 48px;
+      border-top: 1px solid var(--rule-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
 
-					</section>
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .site-nav { padding: 16px 24px; }
+      .hero { grid-template-columns: 1fr; padding: 40px 24px 48px; gap: 36px; }
+      .hero-photo-frame { max-width: 280px; margin: 0 auto; }
+      .about-section, .now-section { padding: 40px 24px; }
+      .lane-head { padding: 0 24px 20px; }
+      .lane-track { padding: 4px 24px 24px; }
+      .contact-section { padding: 48px 24px 32px; }
+    }
+    @media (max-width: 600px) {
+      .brand-name { display: none; }
+      .nav-links { gap: 0; }
+      .nav-link { padding: 6px 9px; font-size: 10px; }
+      .now-list { grid-template-columns: 1fr; }
+      .about-row { grid-template-columns: 1fr; gap: 6px; }
+      .about-margin { margin-bottom: 2px; }
+      .section-title { font-size: 36px; }
+      .card { flex: 0 0 280px; }
+      .colophon { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
 
-				<!-- Two -->
-					<section id="two">
-						<h3>Work and Hobby Artifacts</h3>
-						<!-- Tab links -->
-						<div class="tab">
-						  <button class="tablinks" id="defaultOpenOuter" onclick="openTab(event, 'Bhangra Dance Vault')">Bhangra Dance Vault</button>
-						  <button class="tablinks" onclick="openTab(event, 'Community Involvement')">Community Involvement</button>
-						  <button class="tablinks" onclick="openTab(event, 'Research')">Neuroscience Research</button>
-						 <!-- 
-						  <button class="tablinks" onclick="openTab(event, 'Work Experiences')">Work Experiences</button>
-						 -->
-						</div>
+  <!-- Nav -->
+  <nav class="site-nav" id="site-nav">
+    <a href="#intro" class="brand">
+      <span class="brand-mark">AK</span>
+      <span class="brand-sep">/</span>
+      <span class="brand-name">anmol kandola</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about"     class="nav-link" data-section="about">About</a>
+      <a href="#work"      class="nav-link" data-section="work">Work</a>
+      <a href="#dance"     class="nav-link" data-section="dance">Dance</a>
+      <a href="#community" class="nav-link" data-section="community">Civic</a>
+      <a href="#contact"   class="nav-link" data-section="contact">Contact</a>
+    </div>
+  </nav>
 
-						<!-- Tab content -->
-						<div id="Research" class="tabcontent">
-  						    <h3>Neuroscience Research: Past Projects & Lab Involvement</h3>
-							<div class="row">
-								<article class="6u$ 12u$(xsmall) work-item">
-									<a href="images/fulls/AKandola_PVTPoster_Stanford.png" class="image fit thumb"><img src="images/thumbs/lab_pic.jpg" alt="" /></a>
-									<h3>Discovering the role of PVT in motivated behavior (Summer 2016)</h3>
-									<p>Working at Stanford University's Biology Department in <a href="https://profiles.stanford.edu/xiaoke-chen" target="_blank">Professor Xiaoke Chen&apos;s</a> Lab, I developed experiments
-									to validate the role of the paraventricular thalamus in Pavlovian learning and used MatLab scripts to analyze and visualize data.</p>
-								</article>
-								<article class="6u 12u$(xsmall) work-item">
-									<a href="images/fulls/lab_experiment_setup.jpg" class="image fit thumb"><img src="images/thumbs/lab_2016_pic.jpg" alt="" /></a>
-									<h3>Investigating the role of Prefrontal Cortex Circuits in Context-Dependent Attention (Summer 2015)</h3>
-									<p>Working in <a href="https://halassalab.tufts.edu/" target="_blank">Professor Michael Halassa&apos;s</a> Lab at NYU Langone (now at Tufts), I used Solidworks and 3D printers to build behavioral training systems, and used Arduino and MatLab
-										scripts to carry out an experiment studying context-dependent color segregation in mice.</p>
-								</article>
-								<article class="6u 12u$(xsmall) work-item">
-									<a href="images/fulls/board.jpg" class="image fit thumb"><img src="images/thumbs/neuroncomponents.jpg" alt="" /></a>
-									<h3>Computational Analysis of Neuronal Chromatin and Nuclear PARP-1/PAR Expression Provides Novel Marker for Detecting Learning-Associated Changes in Mice (2013-2015)</h3>
-									<p>Working in <a href="https://www.downstate.edu/faculty/pathology/hernandez.html" target="_blank">Dr. Ivan Hernandez&apos;</a> lab at SUNY Downstate, I created a program using NetLogo to identify memory encoding neurons within a network by quantifying confocal images of hippocampal neurons stained for chromatin, 
-										the enzyme PARP-1, and PAR. We identified PARP-1 as novel marker for detecting learning associated changes in mice and the program is still used 
-									in Dr. Hernandez&apos; lab. My work was encapsualted in a research paper and the 2nd Grand Award in the Animal Sciences Category at the 2015 International Science 
-									and Engineering Fair. </p>
-								</article>
-							</div>
-						<!--	
-								<ul class="actions">
-								<li><a href="#" class="button">Full Portfolio</a></li>
-							</ul>
-						-->
-						</div>
+  <!-- Hero -->
+  <header id="intro" style="scroll-margin-top:80px">
+    <div class="hero">
+      <div class="hero-photo-frame">
+        <img src="images/avatar.jpg" alt="Anmol Kandola" class="hero-photo" />
+        <div class="hero-photo-tag">
+          <span class="hero-dot"></span> Currently in Boston
+        </div>
+      </div>
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span> Hello &mdash; I&rsquo;m Anmol.
+        </div>
+        <h1 class="hero-title">
+          Builder of <em>tools</em>,<br>
+          dancer of <em>bhangra</em>,<br>
+          advocate for <em>my people</em>.
+        </h1>
+        <p class="hero-para">
+          CPO &amp; Co-Founder at <a href="https://saifein.com/" class="inline-link">SAIFE</a>.
+          MBA student at Harvard Business School. Previously at LifeX VC, Jimini Health,
+          Schmidt Futures, EliseAI &amp; Amazon.
+        </p>
+        <div class="hero-actions">
+          <a href="https://saifein.com/" class="btn-primary" target="_blank" rel="noreferrer">What I&rsquo;m building &rarr;</a>
+          <a href="https://substack.com/@anmolkandola" class="btn-ghost" target="_blank" rel="noreferrer">Read the journal</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
+  <!-- Now -->
+  <section id="now" class="now-section" style="scroll-margin-top:80px">
+    <div class="section-head">
+      <span class="section-num">&sect;</span>
+      <h2 class="section-title">Now</h2>
+      <span class="section-sub">What I&rsquo;m up to this season</span>
+      <span class="live-pill"><span class="live-dot"></span> Live</span>
+    </div>
+    <ul class="now-list">
+      <li class="now-item"><span class="checkbox">&#10003;</span><span>Building SAIFE &mdash; first product launch this quarter</span></li>
+      <li class="now-item"><span class="checkbox">&#10003;</span><span>Writing on Substack about the founder journey</span></li>
+      <li class="now-item"><span class="checkbox">&#10003;</span><span>Wrapping up second year at HBS</span></li>
+      <li class="now-item"><span class="checkbox">&#10003;</span><span>Choreographing a bhangra segment &mdash; coming out soon</span></li>
+      <li class="now-item"><span class="checkbox">&#10003;</span><span>Reading: <em>The Count of Monte Cristo</em></span></li>
+    </ul>
+  </section>
 
-						<div id="Work Experiences" class="tabcontent">
-							<h3>Work Experiences</h3>
-							<br> <b>Product Management Experience</b>
-							<figure>
-								<a href="https://schmidtfutures.com/" target="_blank">
-								<img src="images/thumbs/work_logos/sf_logo.png" width="250" height="200" alt="Schmidt Futures"></a>
-								<figcaption>Schmidt Futures: September 2022 - Present</figcaption>
-							</figure>
+  <!-- About -->
+  <section id="about" class="about-section" style="scroll-margin-top:80px">
+    <div class="section-head">
+      <span class="section-num">&sect;</span>
+      <h2 class="section-title">About</h2>
+      <span class="section-sub">The longer version</span>
+    </div>
+    <div class="about-row">
+      <span class="about-margin">Work</span>
+      <p class="about-para">My path has zig-zagged through neuroscience research, software engineering, and product management &mdash; and along the way I&rsquo;ve picked up the toolkit to step into almost any industry and tackle its hardest problems. What I really care about is the messy, important work: figuring out what&rsquo;s broken, why it matters, and shipping something that actually moves the needle. I&rsquo;ve built CRM integrations for real-estate companies, benefit delivery platforms for senior citizens, and wage-theft reclamation tools for asylum seekers and legal aid advocates.</p>
+    </div>
+    <div class="about-row">
+      <span class="about-margin">Civic</span>
+      <p class="about-para">Outside of work, I get involved in local and grassroots movements &mdash; volunteering on city council campaigns, collecting census data, and participating in public hearings for legislation affecting my friends and family.</p>
+    </div>
+    <div class="about-row">
+      <span class="about-margin">Joy</span>
+      <p class="about-para">For fun, I curate playlists and chase new music, watch F1, play basketball, and choreograph and dance bhangra. I&rsquo;m always hunting for the best dairy-free pizza in any city I land in, listening to history and tech podcasts, and making memento boxes &mdash; keepsakes, photo books, and odds and ends to capture each year.</p>
+    </div>
+  </section>
 
-							<figure>
-								<a href="https://www.justicialab.org/" target="_blank">
-								<img src="images/thumbs/work_logos/justicialab_logo.png" width="250" height="200" alt="Justicia Lab"></a>
-								<figcaption>Justicia Lab: September 2023 - Present</figcaption>
-							</figure>
+  <!-- Work Lane -->
+  <section id="work" class="lane" style="scroll-margin-top:80px">
+    <div class="lane-head">
+      <div class="lane-head-left">
+        <span class="section-num">I</span>
+        <h2 class="section-title">Work &amp; Product</h2>
+        <span class="section-sub" id="work-count"></span>
+      </div>
+      <div class="lane-nav">
+        <button class="lane-arrow" onclick="scrollLane('work-track',-1)" aria-label="Previous">&larr;</button>
+        <button class="lane-arrow" onclick="scrollLane('work-track', 1)" aria-label="Next">&rarr;</button>
+      </div>
+    </div>
+    <div class="lane-track" id="work-track"></div>
+  </section>
 
-							<figure>
-								<a href="https://conservationxlabs.com/the-nabit" target="_blank">
-								<img src="images/thumbs/work_logos/cxl_logo.png" width="250" height="200" alt="Conservation X Labs"></a>
-								<figcaption>Conservation X Labs: March 2022 - September 2023</figcaption>
-							</figure>
+  <!-- Dance Lane -->
+  <section id="dance" class="lane" style="scroll-margin-top:80px">
+    <div class="lane-head">
+      <div class="lane-head-left">
+        <span class="section-num">II</span>
+        <h2 class="section-title">Bhangra &amp; Dance</h2>
+        <span class="section-sub" id="dance-count"></span>
+      </div>
+      <div class="lane-nav">
+        <button class="lane-arrow" onclick="scrollLane('dance-track',-1)" aria-label="Previous">&larr;</button>
+        <button class="lane-arrow" onclick="scrollLane('dance-track', 1)" aria-label="Next">&rarr;</button>
+      </div>
+    </div>
+    <div class="lane-track" id="dance-track"></div>
+  </section>
 
-							<figure>
-								<a href="https://www.unohealth.com/" target="_blank">
-								<img src="images/thumbs/work_logos/unohealth_logo.png" width="250" height="200" alt="Uno Health"></a>
-								<figcaption>Uno Health: September 2022 - March 2022</figcaption>
-							</figure>
+  <!-- Community Lane -->
+  <section id="community" class="lane" style="scroll-margin-top:80px">
+    <div class="lane-head">
+      <div class="lane-head-left">
+        <span class="section-num">III</span>
+        <h2 class="section-title">Community &amp; Civic</h2>
+        <span class="section-sub" id="community-count"></span>
+      </div>
+      <div class="lane-nav">
+        <button class="lane-arrow" onclick="scrollLane('community-track',-1)" aria-label="Previous">&larr;</button>
+        <button class="lane-arrow" onclick="scrollLane('community-track', 1)" aria-label="Next">&rarr;</button>
+      </div>
+    </div>
+    <div class="lane-track" id="community-track"></div>
+  </section>
 
-							<figure>
-								<a href="https://www.eliseai.com/" target="_blank">
-								<img src="images/thumbs/work_logos/eliseai_logo.png" width="250" height="200" alt="EliseAI"></a>
-								<figcaption>EliseAI: December 2021 - July 2022</figcaption>
-							</figure>
+  <!-- Contact -->
+  <section id="contact" class="contact-section" style="scroll-margin-top:80px">
+    <div class="section-head">
+      <span class="section-num">&#10022;</span>
+      <h2 class="section-title">Get in touch</h2>
+    </div>
+    <p class="contact-lede">Got a question, an idea, or an opportunity? Drop me a line. I read everything.</p>
+    <div class="contact-grid">
+      <a href="mailto:akandola97@gmail.com" class="contact-card">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">akandola97@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/akandola/" target="_blank" rel="noreferrer" class="contact-card">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value">/in/akandola</span>
+      </a>
+      <a href="https://substack.com/@anmolkandola" target="_blank" rel="noreferrer" class="contact-card">
+        <span class="contact-label">Substack</span>
+        <span class="contact-value">@anmolkandola</span>
+      </a>
+      <a href="https://saifein.com/" target="_blank" rel="noreferrer" class="contact-card">
+        <span class="contact-label">Building</span>
+        <span class="contact-value">SAIFE</span>
+      </a>
+    </div>
+    <div class="colophon">
+      <span>&copy; Anmolpreet Kandola, 2026</span>
+      <span>Made with care &middot; Boston / NYC</span>
+    </div>
+  </section>
 
-							<br> <b>Software Engineering Experience</b>
-							<figure>
-								<a href="https://www.amazon.com/" target="_blank">
-								<img src="images/thumbs/work_logos/amazon_logo.png" width="250" height="200" alt="Amazon"></a>
-								<figcaption>Amazon: August 2019 - November 2021 (Full-time); June 2018 - August 2018 (Intern)</figcaption>
-							</figure>
+  <script>
+  // ── Card tones per category ──────────────────────────────────────────────
+  const TONES = {
+    work:      ["#E8DECB","#D9C9A8","#CFB98F","#E0D2BB"],
+    dance:     ["#EBD7C9","#E0BCA5","#D5A88E","#E5C7B5"],
+    community: ["#D8DFCB","#C2CCB1","#AEBC97","#CDD5BC"],
+  };
 
-							<figure>
-								<a href="https://www.tagup.io/" target="_blank">
-								<img src="images/thumbs/work_logos/tagup_logo.png" width="250" height="200" alt="Tagup"></a>
-								<figcaption>Tagup: June 2017 - August 2017</figcaption>
-							</figure>
+  // ── Content data ─────────────────────────────────────────────────────────
+  const ITEMS = [
+    // Work & Product
+    { id:"saife",      cat:"work", year:"2026",    title:"SAIFE",                    sub:"CPO & Co-Founder",                     blurb:"Building SAIFE — currently in stealth-ish mode. Product launching soon.",                                                                                                                                      url:"https://saifein.com/",                                                                                                     thumb:null,                                              featured:true },
+    { id:"substack",   cat:"work", year:"2026",    title:"Founder Journal",           sub:"Substack",                             blurb:"Writing about the early SAIFE journey, fundraising, and the messy middle of company-building.",                                                                                                              url:"https://substack.com/@anmolkandola",                                                                                       thumb:null },
+    { id:"ask",        cat:"work", year:"2026",    title:"ASK MBA Consulting",        sub:"Founder · Coming Soon",                blurb:"MBA admissions consulting — helping applicants craft authentic, standout candidacies. Launching soon.",                                                                                                       url:"https://askmbaconsulting.com/",                                                                                             thumb:null,                                              comingSoon:true },
+    { id:"lifex",      cat:"work", year:"2025",    title:"LifeX Ventures",            sub:"MBA Fellow",                           blurb:"Sourced and diligenced early-stage healthcare and life-sciences investments alongside the LifeX team while at HBS.",                                                                                        url:"https://www.lifex.vc/",                                                                                                    thumb:null },
+    { id:"jimini",     cat:"work", year:"2025",    title:"Jimini Health",             sub:"Product & GTM Intern",                 blurb:"Led end-to-end launch of Group Scribe — owning ML training strategy, UX, eng collaboration, and GTM. Closed an enterprise contract with a clinical practice serving 150K+ patients annually.",              url:"https://jiminihealth.com/",                                                                                                 thumb:null },
+    { id:"justicia",   cat:"work", year:"2023–24", title:"Justicia Lab",              sub:"PM Rotation",                          blurb:"Converted a wage-reclamation tool prospect into a paid pilot; enabled adoption of a universal case-intake tool at Catholic Charities Houston (85K people/yr).",                                             url:"https://www.justicialab.org/",                                                                                              thumb:"images/thumbs/work_logos/justicialab_logo.png" },
+    { id:"semi",       cat:"work", year:"2023",    title:"Semiconductor Policy",      sub:"$300K Grant · Cited by White House NSC", blurb:"Raised $300K in grant funding for semiconductor policy research, later cited by the White House National Security Council.",                                                                            url:null,                                                                                                                       thumb:null },
+    { id:"schmidt",    cat:"work", year:"2022–24", title:"Schmidt Futures",           sub:"Technologists for Global Transformation", blurb:"Selected for the 2022 cohort of the rotational PM program — placed across Justicia Lab, Conservation X Labs, and Uno Health on social-impact products.",                                              url:"https://schmidtfutures.com/",                                                                                               thumb:"images/thumbs/work_logos/sf_logo.png" },
+    { id:"cxl",        cat:"work", year:"2023",    title:"Conservation X Labs",       sub:"PM Rotation",                          blurb:"Synthesized requirements for a portable molecular development kit through outreach to 62 labs; accelerated rapid-DNA test deployment by sourcing 5 international manufacturers.",                           url:"https://conservationxlabs.com/the-nabit",                                                                                  thumb:"images/thumbs/work_logos/cxl_logo.png" },
+    { id:"uno",        cat:"work", year:"2022–23", title:"Uno Health",                sub:"PM Rotation",                          blurb:"Launched with Elevance Health into MO and WI — capturing 4% (1.2M members) of the Medicare Advantage market and realizing $2M in member savings.",                                                        url:"https://www.unohealth.com/",                                                                                                thumb:"images/thumbs/work_logos/unohealth_logo.png" },
+    { id:"elise",      cat:"work", year:"2021–22", title:"EliseAI",                   sub:"Associate Product Manager",            blurb:"Spearheaded a Knock-CRM integration (1M+ units) — +20% prospect engagement across 43 properties in 3 months. Launched in-house CRM that converted +14% leads-to-tours.",                                  url:"https://www.eliseai.com/",                                                                                                  thumb:"images/thumbs/work_logos/eliseai_logo.png" },
+    { id:"amazon",     cat:"work", year:"2019–21", title:"Amazon",                    sub:"Software Development Engineer",        blurb:"Eliminated 100K weekly catalog inaccuracies and lifted automated corrections 30% by streamlining validation and logging. Sustained a 10% peak-traffic increase through Q4 2020.",                          url:"https://www.amazon.com/",                                                                                                   thumb:"images/thumbs/work_logos/amazon_logo.png" },
+    { id:"stanford",   cat:"work", year:"2016",    title:"Stanford Biology Research", sub:"Co-author · Neural Circuits",          blurb:"Co-authored research on neural circuits driving motivated behavior — designed experiments, performed mouse surgeries, showed the role of the PVT in Pavlovian learning.",                                    url:"https://drive.google.com/file/d/0B1SBs_ZVIKo7ZkhWMm5nLW1Ea0U/view?resourcekey=0-Mw-x-UoTQwhyTNcnLE5Z_A",               thumb:null },
 
-							<br> <b>Computational Neuroscience Experience</b>
-							<figure>
-								<a href="https://biology.stanford.edu/" target="_blank">
-								<img src="images/thumbs/work_logos/stanfordbio_logo.png" width="250" height="200" alt="Stanford Biology Department"></a>
-								<figcaption>Stanford Biology Department: June 2016 - August 2016</figcaption>
-							</figure>
+    // Bhangra & Dance
+    { id:"sangeet-25", cat:"dance", year:"2025", title:"Samir & Ashu's Sangeet",      sub:"Choreographed performance",  blurb:"Sangeet performance, August 2025.",                                                                                           url:"https://youtu.be/KP-Jlez3qDo",                           thumb:null,                                                              featured:true },
+    { id:"ekta-25",    cat:"dance", year:"2025", title:"HBS Ekta — Section G",        sub:"Harvard Business School",    blurb:"Section G performance at HBS Ekta, February 2025.",                                                                          url:"https://youtu.be/gX8H_rccv6g",                           thumb:null },
+    { id:"ankhi",      cat:"dance", year:"2023", title:"Ankhi Sher Jawan Mix",        sub:"Personal choreography",      blurb:"New choreography and ending to a competitive mix from spring 2023.",                                                          url:"https://www.instagram.com/p/CyRrBiWryDu/",              thumb:"images/thumbs/dance_vids/ankhi-sher-jawan-thumbnail.png" },
+    { id:"bahrain",    cat:"dance", year:"2023", title:"Suhavi & Umang's Wedding",    sub:"Choreographed performance",  blurb:"Wedding reception in Bahrain — all black with a white pagh.",                                                                url:"https://youtu.be/A3xv4_vOQx0",                          thumb:"images/thumbs/dance_vids/bahrain-thumbnail.png" },
+    { id:"doja",       cat:"dance", year:"2022", title:"Bhangra × Doja",             sub:"Collaboration",              blurb:"Collaboration with Gauri on her Doja Cat project — championing female voices in bhangra.",                                    url:"https://www.youtube.com/watch?v=B6z7niNbUHU",           thumb:"images/thumbs/dance_vids/doja-thumbnail.png" },
+    { id:"cdmx",       cat:"dance", year:"2022", title:"Bhangra in CDMX",            sub:"Impromptu choreo",           blurb:"Plaza de lectura José Saramago, Condesa neighborhood, Mexico City.",                                                         url:"https://www.youtube.com/watch?v=DBP-27nsknc",           thumb:"images/thumbs/dance_vids/bhangra-cdmx-thumbnail.png" },
+    { id:"alumni-21",  cat:"dance", year:"2021", title:"Bhangra in the Heights XIV", sub:"Columbia Bhangra Alumni",    blurb:"Coordinated alumni choreo for the first virtual showcase. Proceeds donated to the farmers' protest in India.",                 url:"https://youtu.be/MzveXp5ohjU",                          thumb:"images/thumbs/dance_vids/alumni-routine-2021-thumbnail.png" },
+    { id:"alumni-20",  cat:"dance", year:"2020", title:"Bhangra in the Heights XIII",sub:"Columbia Bhangra Alumni",    blurb:"First post-grad year — organized alumni for the annual showcase.",                                                            url:"https://www.youtube.com/watch?v=LjDVBp5SQsM",           thumb:"images/thumbs/dance_vids/alumni-routine-2020-thumbnail.png" },
+    { id:"blitz",      cat:"dance", year:"2019", title:"Bhangra Blitz — 4th place",  sub:"Dallas, TX",                 blurb:"Competed senior year, second year as captain of CU Bhangra.",                                                               url:"https://youtu.be/7x99UF1gg5k",                          thumb:"images/thumbs/dance_vids/blitz-thumbnail.png" },
+    { id:"bheights-19",cat:"dance", year:"2019", title:"Bhangra in the Heights XII", sub:"Columbia Bhangra",           blurb:"Favorite collegiate performance — sold-out auditorium, record roster, flags as a new touch.",                                url:"https://www.youtube.com/watch?v=vq5kjlP-4pk",           thumb:"images/thumbs/dance_vids/bheights-2019-thumbnail.png" },
+    { id:"bbc",        cat:"dance", year:"2017", title:"Boston Bhangra Competition", sub:"Boston, MA",                 blurb:"Competed first semester as captain — accepted only 3 weeks in advance.",                                                     url:"https://www.youtube.com/watch?v=8_VKD877Rzo",           thumb:"images/thumbs/dance_vids/bbc-2017-thumbnail.png" },
+    { id:"naach",      cat:"dance", year:"2017", title:"Naach Inferno — 2nd place",  sub:"South Street Seaport, NYC",  blurb:"CU Bhangra at the Seaport competition.",                                                                                    url:"https://www.youtube.com/watch?v=i7r6M1mt4Wo",           thumb:"images/thumbs/dance_vids/naach-inferno-2017-thumbnail.png" },
+    { id:"burgh",      cat:"dance", year:"2016", title:"Bhangra in the Burgh",       sub:"Pittsburgh, PA",             blurb:"First competition — only 2 months after joining CU Bhangra.",                                                               url:"https://www.youtube.com/watch?v=yDpOI5J5f8A",           thumb:"images/thumbs/dance_vids/burgh-2016-thumbnail.png" },
 
-							<figure>
-								<a href="https://med.nyu.edu/departments-institutes/neuroscience/" target="_blank">
-								<img src="images/thumbs/work_logos/nyulangone_logo.png" width="250" height="200" alt="NYU Langone"></a>
-								<figcaption>NYU Langone: June 2015 - August 2015</figcaption>
-							</figure>
+    // Community & Civic
+    { id:"mta",           cat:"community", year:"2022",    title:"MTA Public Hearings",       sub:"Central Business District Tolling",          blurb:"Testified at NYC MTA public hearings on the Central Business District tolling proposals.",                                                              url:"https://youtu.be/KSIrdtUCniI?t=10019",                                                                                     thumb:"images/thumbs/community/mta-hearing-thumbnail.png" },
+    { id:"census",        cat:"community", year:"2021",    title:"Census Data Collection",    sub:"Richmond Hill, Queens",                      blurb:"Volunteer + translator for community data collection in Richmond Hill.",                                                                              url:"https://www.nyc.gov/assets/sbs/downloads/pdf/neighborhoods/avenyc-cdna-richmondhill.pdf",                                  thumb:"images/thumbs/community/census-thumbnail.png" },
+    { id:"jaslin",        cat:"community", year:"2020–21", title:"Jaslin Kaur for City Council", sub:"Campaign Volunteer",                     blurb:"Volunteered on Jaslin Kaur's city council campaign in Queens.",                                                                                     url:"https://directory.runforsomething.net/candidate/1401/kaur-jaslin",                                                         thumb:"images/thumbs/community/jaslin-for-queens-thumbnail.png" },
+    { id:"nsf",           cat:"community", year:"2018",    title:"NSF Settlement — $2.7M",    sub:"Investigative · The Huntington News",         blurb:"Reported on Northeastern's $2.7M NSF settlement for a professor's misuse of federal research funds.",                                               url:"https://huntnewsnu.com/39147/campus/northeastern-sued-by-nsf/",                                                            thumb:null },
+    { id:"survey",        cat:"community", year:"2018",    title:"Sexual Assault Survey",     sub:"Reporting · The Huntington News",            blurb:"Reported on the release of Northeastern's campus sexual assault survey results.",                                                                   url:"https://huntnewsnu.com/39576/campus/nu-sexual-assault-survey-released/",                                                   thumb:null },
+    { id:"tour",          cat:"community", year:"2018",    title:"Boston's Darker Side",      sub:"Lifestyle · The Huntington News",            blurb:"A walking-tour feature on the lesser-told history of Boston.",                                                                                      url:"https://huntnewsnu.com/39304/lifestyle/walking-tour-reveals-darker-side-of-boston/",                                       thumb:null },
+    { id:"saldef",        cat:"community", year:"2016",    title:"SikhLEAD LDP",              sub:"Mental Health Organizer",                    blurb:"Connected mental health resources to the Richmond Hill community as part of SikhLEAD's leadership program.",                                         url:"https://saldef.org/emerging-leaders-build-community-across-america/",                                                      thumb:"images/thumbs/community/ldp-thumbnail.png" },
+  ];
 
-							<figure>
-								<a href="https://www.downstate.edu/index.html" target="_blank">
-								<img src="images/thumbs/work_logos/sunydownstate_logo.png" width="250" height="200" alt="SUNY Downstate"></a>
-								<figcaption>SUNY Downstate Medical Center: Spring 2013 - Spring 2015</figcaption>
-							</figure>
-						</div>
-															
-						<div id="Community Involvement" class="tabcontent">
-							<h3>Community Involvement</h3>
-							<figure>
-								<a href="https://youtu.be/KSIrdtUCniI?t=10019" target="_blank">
-								<img src="images/thumbs/community/mta-hearing-thumbnail.png" width="250" height="200" alt="MTA Hearings on Central Business District Proposals"></a>
-								<figcaption>MTA Public Hearings on Central Business District Proposals (2022)</figcaption>
-							</figure>
+  // ── Escape HTML ─────────────────────────────────────────────────────────
+  function esc(s) {
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
 
-							<figure>
-								<a href="https://www.nyc.gov/assets/sbs/downloads/pdf/neighborhoods/avenyc-cdna-richmondhill.pdf" target="_blank">
-								<img src="images/thumbs/community/census-thumbnail.png" width="250" height="200" alt="Census Data Collection"></a>
-								<figcaption>Census Data Collection in Richmond Hill (2021 Volunteer, Translator)</figcaption>
-							</figure>
+  // ── Build one card's HTML ────────────────────────────────────────────────
+  function cardHTML(item, cat, idx) {
+    const tone    = TONES[cat][idx % TONES[cat].length];
+    const isLogo  = cat === "work"  && item.thumb;
+    const isVideo = cat === "dance" && item.thumb;
+    const hasBg   = !!item.thumb;
+    const thumbBg = hasBg
+      ? "#1A1714"
+      : `color-mix(in oklch, ${tone} 80%, #1A1714)`;
 
-							<figure>
-								<a href="https://directory.runforsomething.net/candidate/1401/kaur-jaslin" target="_blank">
-								<img src="images/thumbs/community/jaslin-for-queens-thumbnail.png" width="250" height="200" alt="Jaslin Kaur for City Council"></a>
-								<figcaption>Jaslin Kaur for City Council (2020-2021 Volunteer)</figcaption>
-							</figure>
+    const thumbContent = hasBg
+      ? `<img src="${esc(item.thumb)}" alt="" class="${isLogo ? "thumb-contain" : "thumb-cover"}" onerror="this.style.display='none'">`
+      : `<div class="thumb-placeholder"><span class="thumb-mark">${esc(item.title[0])}</span></div>`;
 
-							<figure>
-								<a href="https://saldef.org/emerging-leaders-build-community-across-america/" target="_blank">
-								<img src="images/thumbs/community/ldp-thumbnail.png" width="250" height="200" alt="Mental Health First Aid Training in Richmond Hill"></a>
-								<figcaption>SikhLEAD Leadership Development Program: Connecting Mental Health Resources to Richmond Hill (2016 Organizer)</figcaption>
-							</figure>
+    const playHTML     = isVideo  ? `<div class="play-overlay"><div class="play-icon">&#9654;</div></div>` : "";
+    const featuredHTML = item.featured   ? `<span class="badge badge-featured">&#9733; Featured</span>` : "";
+    const soonHTML     = item.comingSoon ? `<span class="badge badge-soon">Coming Soon</span>` : "";
 
-						</div>
+    const tag  = item.url ? "a" : "div";
+    const attr = item.url ? ` href="${esc(item.url)}" target="_blank" rel="noreferrer"` : "";
 
-						<div id="Bhangra Dance Vault" class="tabcontent">
-							<h3>Bhangra Dance Videos</h3>
-							<div class="tabDanceVids">
-								<button class="tabDanceLinks" id="defaultOpenInner" onclick="openDanceTab(event, 'Personal Choreography')">Personal Choreography</button>
-								<button class="tabDanceLinks" onclick="openDanceTab(event, 'Competition Performances')">Competition Performances</button>
-								<button class="tabDanceLinks" onclick="openDanceTab(event, 'Gigs and Practice Videos')">Gigs and Practice Videos</button>
-							</div>
+    return `<${tag}${attr} class="card" style="background:${tone}" ${!item.url ? 'style="cursor:default"' : ""}>
+      <div class="card-thumb" style="background:${thumbBg}">
+        ${thumbContent}${playHTML}${featuredHTML}${soonHTML}
+      </div>
+      <div class="card-body">
+        <div class="card-top-row">
+          <span class="card-year">${esc(item.year)}</span>
+          <span class="card-arrow">${item.url ? "&#8599;" : ""}</span>
+        </div>
+        <h3 class="card-title">${esc(item.title)}</h3>
+        <div class="card-sub">${esc(item.sub)}</div>
+        <p class="card-blurb">${esc(item.blurb)}</p>
+      </div>
+    </${tag}>`;
+  }
 
-							<div id="Personal Choreography" class="tabDanceContent">
-								<div class="row4-1">
-									<article class="bhangra-ankhi-jawan-10-23">
-										<a href="https://www.instagram.com/p/CyRrBiWryDu/" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/ankhi-sher-jawan-thumbnail.png" alt="" /></a>
-										<h3>Ankhi Sher Jawan Mix (October 2023)</h3>
-										<p>New choreography and ending to a competetive mix from the spring 2023 season!</p>
-									</article>
-									<article class="bhangra-bahrain">
-										<a href="https://youtu.be/A3xv4_vOQx0" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/bahrain-thumbnail.png" alt="" /></a>
-										<h3>Suhavi and Umang's Wedding Dance (Jan 2023)</h3>
-										<p>Choreographed dance for my friend Suhavi at her wedding reception in Bahrain! I'm wearing all black except 
-											for a white pagh.
-										</p>
-									</article>
-									<article class="bhangra-doja">
-										<a href="https://www.youtube.com/watch?v=B6z7niNbUHU&list=PLRlaDsaJeEJrg8WPhSuTyZQTxWKFtd3-T&index=6" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/doja-thumbnail.png" alt="" /></a>
-										<h3>Bhangra x Doja (Spring 2022)</h3>
-										<p>I collaborated with Gauri on her Doja Cat project, where we taught choreo and formations for this piece, one of three 
-											set to Doja Cat's music in the name of championing female voices both in and outside of the Bhangra circuit. 
-										</p>
-									</article>
-									<article class="bhangra-mexico-city-05-22">
-										<a href="https://www.youtube.com/watch?v=DBP-27nsknc" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/bhangra-cdmx-thumbnail.png" alt="" /></a>
-										<h3>Bhangra in Ciudad de México (May 2022)</h3>
-										<p>Impromptu choreo in CDMX, near Plaza de lectura José Saramago in the Condesa neighborhood.</p>
-									</article>
-									<article class="bhangra-alumni-routine-2021">
-										<a href="https://youtu.be/MzveXp5ohjU" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/alumni-routine-2021-thumbnail.png" alt="" /></a>
-										<h3>Bhangra in the Heights XIV: Columbia Bhangra Alumni Routine (March 2021)</h3>
-										<p>I coordinated the alumni choreography and performance for the first ever virtual Bhangra in the Heights showcase, 
-											annually held on campus at Columbia in morningside heights. While being socially distanced or masked, 20 alumni from around the 
-											country came together during the pandemic wanting to contribute to our showcase, where proceeds would be donated to the farmer's 
-											protest going on in India at the time. I am the dancer in the New Jersey video in a white crew neck sweater.</p>
-									</article>
-									<article class="bhangra-alumni-routine-2020">
-										<a href="https://www.youtube.com/watch?v=LjDVBp5SQsM" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/alumni-routine-2020-thumbnail.png" alt="" /></a>
-										<h3>Bhangra in the Heights XIII: Columbia Bhangra Alumni Routine (March 2020)</h3>
-										<p>My first year post-grad, I was able to help organize all of the alums, including my own captains to participate in the annual Bhangra in the Heights 
-											showcase. It gave me the chance to work with old friends on everything from the mix, to the choreography and formations, which made it so fun to do. 
-											I'm the dancer in the red vest.</p>
-									</article>
-									<article class="bhangra-audition-vid-fall-2019">
-										<a href="https://www.youtube.com/watch?v=Q_clYjhTXfc" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/fall-2019-audition-thumbnail.png" alt="" /></a>
-										<h3>Columbia Bhangra Competetive Audition Video (Fall 2019)</h3>
-										<p>My first year post-grad, I returned to campus to help the team submit their annual audition video -- this is a required process by which 
-											all competition rosters are chosen in fall and spring competitions. I'm the dancer in the center with the black pagh.</p>
-									</article>
-									<article class="bhangra-bheights-2019">
-										<a href="https://www.youtube.com/watch?v=vq5kjlP-4pk" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/bheights-2019-thumbnail.png" alt="" /></a>
-										<h3>Bhangra in the Heights XII: Columbia Bhangra (Spring 2019)</h3>
-										<p>My favorite collegiate performance came on campus during my senior year and last semester of captaincy. We put on a record number of people 
-											on stage and sold out the auditorium. The flags were a new touch we introduced this year. I'm the dancer in red. 
-										</p>
-									</article>
-									<article class="bhangra-njw-mix">
-										<a href="https://www.youtube.com/watch?v=j6l6MJrvUYI" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/njw-mix-thumbnail.png" alt="" /></a>
-										<h3>Columbia Bhangra Practice Vids: NJW Freestyle (Spring 2019)</h3>
-										<p>Freestyle session with my former co-captain in bhangra practice -- a regular tradition where we split into groups and compete to come up with 
-											the best choreo! I'm the dancer in the blue. 
-										</p>
-									</article>
-								</div>
-							</div>
+  // ── Populate lanes ───────────────────────────────────────────────────────
+  ["work","dance","community"].forEach(cat => {
+    const items = ITEMS.filter(i => i.cat === cat);
+    document.getElementById(`${cat}-track`).innerHTML = items.map((it,i) => cardHTML(it,cat,i)).join("");
+    const countEl = document.getElementById(`${cat}-count`);
+    if (countEl) countEl.textContent = `${items.length} entries`;
+  });
 
+  // ── Lane scroll ──────────────────────────────────────────────────────────
+  function scrollLane(trackId, dir) {
+    const el = document.getElementById(trackId);
+    if (el) el.scrollBy({ left: dir * 520, behavior: "smooth" });
+  }
 
-							<div id="Competition Performances" class="tabDanceContent">
-								<div class="row4-2">
-									<article class="bhangra-blitz-02-2019">
-										<a href="https://youtu.be/7x99UF1gg5k" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/blitz-thumbnail.png" alt="" /></a>
-										<h3>Bhangra Blitz: 4th place (Dallas, TX | February 2019)</h3>
-										<p>We traveled and competed in Dallas during my senior year and second year as captain of CU Bhangra. I'm the male dancer in red!</p>
-									</article>
-									<article class="bhangra-bheights-2018">
-										<a href="https://www.youtube.com/watch?v=1GYEab9yjGE" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/bheights-2018-thumbnail.png" alt="" /></a>
-										<h3>Bhangra in the Heights XI: Columbia Bhangra (Spring 2018)</h3>
-										<p>Our team's performance at our annual showcase during my first year of being captain. I'm the male dancer in red. 
-										</p>
-									</article>
-									<article class="bhangra-bbc-11-2017">
-										<a href="https://www.youtube.com/watch?v=8_VKD877Rzo" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/bbc-2017-thumbnail.png" alt="" /></a>
-										<h3>Boston Bhangra Competition (Boston, MA | November 2017)</h3>
-										<p>We traveled and competed in Boston during my first semester at captain, and we were notified of our acceptance only 3 weeks in advance of the competition. 
-											I am the male dancer in red!</p>
-									</article>
-									<article class="bhangra-naach-inferno-10-2017">
-										<a href="https://www.youtube.com/watch?v=i7r6M1mt4Wo" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/naach-inferno-2017-thumbnail.png" alt="" /></a>
-										<h3>Naach Inferno Competition: 2nd place (New York, NY | October 2017)</h3>
-										<p>CU Bhangra competes in the South Street Seaport Naach Inferno competition. I am the male dancer in red!</p>
-									</article>
-									<article class="bhangra-bheights-2017">
-										<a href="https://www.youtube.com/watch?v=nMyfOYDyYxo" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/bheights-2017-thumbnail.png" alt="" /></a>
-										<h3>Bhangra in the Heights X: Columbia Bhangra (Spring 2017)</h3>
-										<p>CU Bhangra's performance at our annual showcase during my first year on the team. I'm the male dancer in yellow. 
-										</p>
-									</article>
-									<article class="bhangra-burgh-11-2016">
-										<a href="https://www.youtube.com/watch?v=yDpOI5J5f8A" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/burgh-2016-thumbnail.png" alt="" /></a>
-										<h3>Bhangra in the Burgh (Pittsburgh, PA | November 2016)</h3>
-										<p>My first competition, only 2 months after joining CU Bhangra! I'm the male dancer in purple!</p>
-									</article>
-								</div>
-							</div>
+  // ── Active nav via IntersectionObserver ──────────────────────────────────
+  (function() {
+    const sections = ["intro","now","about","work","dance","community","contact"];
+    const links    = document.querySelectorAll(".nav-link[data-section]");
 
+    const setActive = (id) => {
+      links.forEach(l => {
+        l.classList.toggle("active", l.dataset.section === id);
+      });
+    };
 
-							<div id="Gigs and Practice Videos" class="tabDanceContent">
-								<div class="row4-3">
-									<article class="bhangra-mob-tryout-2023">
-										<a href="https://www.youtube.com/watch?v=yIKOK710vGE" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/mob-tryout-thumbnail.png" alt="" /></a>
-										<h3>MOB Chicago Tryout Choreo (Summer 2022)</h3>
-										<p>Choreography from the indepndent team MOB, based in Chicago, IL!</p>
-									</article>
-									<article class="bhangra-fcb-tryout-2020">
-										<a href="https://www.youtube.com/watch?v=VehgEqMR3Jk" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/fcb-tryout-thumbnail.png" alt="" /></a>
-										<h3>First Class Bhangra Tryout Choreo (Fall 2020)</h3>
-										<p>Choreography from the indepndent team First Class Bhangra, based in Pittsburgh, PA! After joining, I was able to practice virtually as a roster member 
-											throughout the pandemic!
-										</p>
-									</article>
-									<article class="bhangra-hungama-2019">
-										<a href="https://www.youtube.com/watch?v=BWj_dc-fHtA" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/hungama-2019-thumbnail.png" alt="" /></a>
-										<h3>Hungama Performance (Spring 2019)</h3>
-										<p>Hosted in partnership by all the south asian organizations on campus, hungama is a celebratory mock wedding event which occurs at Columbia 
-											every year!
-										</p>
-									</article>
-									<article class="bhangra-run-through-02-10-19">
-										<a href="https://www.youtube.com/watch?v=fkluH6MXqq4" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/runthrough-02-10-19-thumbnail.png" alt="" /></a>
-										<h3>CU Bhangra Practice Run-through (Spring 2019)</h3>
-										<p>Prep leading up to showcase and competition for CU Bhangra.
-										</p>
-									</article>
-									<article class="bhangra-run-through-02-14-19">
-										<a href="https://www.youtube.com/watch?v=9Ot3v0To_iM" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/runthrough-02-14-19-thumbnail.png" alt="" /></a>
-										<h3>CU Bhangra Practice In Costume Run-through (Spring 2019)</h3>
-										<p>Prep leading up to showcase and competition for CU Bhangra.
-										</p>
-									</article>
-									<article class="bhangra-z-mixer-2018">
-										<a href="https://www.youtube.com/watch?v=SnZ0VNt17yI" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/z-mixer-2018-thumbnail.png" alt="" /></a>
-										<h3>CU Bhangra Zamana South Asian Mixer (Fall 2018)</h3>
-										<p>The first few weeks every fall are host to many showcases and recruitment events to showcase the different clubs, performance organizations, and competetive 
-											teams at Columbia. In a year where we hoped to expand the size of our team, this was a really important performance to make an impression on all incoming students!
-										</p>
-									</article>
-									<article class="bhangra-cal-unreleased">
-										<a href="https://www.youtube.com/watch?v=1tFILoMxMC8" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/cal-unreleased-thumbnail.png" alt="" /></a>
-										<h3>Columbia Bhangra Practice Vids: Unreleased Cal Bhangra Freestyle (Fall 2018)</h3>
-										<p>Freestyle session with the team bhangra practice -- a regular tradition where we split into groups and compete to come up with 
-											the best choreo! I'm the dancer in the the gray shirt and black shorts. 
-										</p>
-									</article>
-									<article class="bhangra-night-market-2018">
-										<a href="https://youtu.be/zVffFhc8O_0" target="_blank" class="image fit thumb"><img src="images/thumbs/dance_vids/night-market-2018-thumbnail.png" alt="" /></a>
-										<h3>Columbia Bhangra Night Market (Fall 2018)</h3>
-										<p>Night Market is hosted by the Chinese Student Association as an annual celebration of asian art and culture. It's also where we first introduce our 
-											new dancers to the rest of the school as performing members of CU Bhangra! This was my final Night Market as a member of the team. 
-										</p>
-									</article>
-								</div>
-							</div>
-						</div>
-				</section>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: "-25% 0px -65% 0px" });
 
-				<!-- Three -->
-					<section id="three">
-						<h2>Get In Touch</h2>
-						<p> If you have a question, an idea, or an opportunity, please send me an email. I'm always open to chat!</p>
-						<div class="row">
-							<div class="8u 12u$(small)">
-                                <!--
-								<form method="post" action=mailto:akandola97@gmail.com>
-									<div class="row uniform 50%">
-										<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-										<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-										<div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
-                                    </div> <br>
-                                    <ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-                                </ul>
-                                </br>
-                                </form>
-                            -->
-                            <ul class="icons">
-                                <li><a href="mailto:akandola97@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
-                                <b>EMAIL:</b> <br><br> <b><font size="4">akandola97@gmail.com</font></b>
-                            </ul>
-							</div>
-						</div>
-					</section>
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+  })();
+  </script>
 
-				<!-- Four -->
-				<!--
-					<section id="four">
-						<h2>Elements</h2>
-
-						<section>
-							<h4>Text</h4>
-							<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-							This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-							This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-							<hr />
-							<header>
-								<h4>Heading with a Subtitle</h4>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<header>
-								<h5>Heading with a Subtitle</h5>
-								<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-							</header>
-							<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-							<hr />
-							<h2>Heading Level 2</h2>
-							<h3>Heading Level 3</h3>
-							<h4>Heading Level 4</h4>
-							<h5>Heading Level 5</h5>
-							<h6>Heading Level 6</h6>
-							<hr />
-							<h5>Blockquote</h5>
-							<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-							<h5>Preformatted</h5>
-							<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-print 'Iteration ' + i;
-deck.shuffle();
-i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-						</section>
-
-						<section>
-							<h4>Lists</h4>
-							<div class="row">
-								<div class="6u 12u$(xsmall)">
-									<h5>Unordered</h5>
-									<ul>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Sagittis adipiscing lorem eleifend.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ul>
-									<h5>Alternate</h5>
-									<ul class="alt">
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Sagittis adipiscing lorem eleifend.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ul>
-								</div>
-								<div class="6u$ 12u$(xsmall)">
-									<h5>Ordered</h5>
-									<ol>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Etiam vel felis at lorem sed viverra.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-										<li>Dolor pulvinar etiam magna etiam.</li>
-										<li>Etiam vel felis at lorem sed viverra.</li>
-										<li>Felis enim feugiat dolore viverra.</li>
-									</ol>
-									<h5>Icons</h5>
-									<ul class="icons">
-										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-										<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-										<li><a href="#" class="icon fa-tumblr"><span class="label">Tumblr</span></a></li>
-									</ul>
-								</div>
-							</div>
-							<h5>Actions</h5>
-							<ul class="actions">
-								<li><a href="#" class="button special">Default</a></li>
-								<li><a href="#" class="button">Default</a></li>
-							</ul>
-							<ul class="actions small">
-								<li><a href="#" class="button special small">Small</a></li>
-								<li><a href="#" class="button small">Small</a></li>
-							</ul>
-							<div class="row">
-								<div class="6u 12u$(small)">
-									<ul class="actions vertical">
-										<li><a href="#" class="button special">Default</a></li>
-										<li><a href="#" class="button">Default</a></li>
-									</ul>
-								</div>
-								<div class="6u$ 12u$(small)">
-									<ul class="actions vertical small">
-										<li><a href="#" class="button special small">Small</a></li>
-										<li><a href="#" class="button small">Small</a></li>
-									</ul>
-								</div>
-								<div class="6u 12u$(small)">
-									<ul class="actions vertical">
-										<li><a href="#" class="button special fit">Default</a></li>
-										<li><a href="#" class="button fit">Default</a></li>
-									</ul>
-								</div>
-								<div class="6u$ 12u$(small)">
-									<ul class="actions vertical small">
-										<li><a href="#" class="button special small fit">Small</a></li>
-										<li><a href="#" class="button small fit">Small</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-
-						<section>
-							<h4>Table</h4>
-							<h5>Default</h5>
-							<div class="table-wrapper">
-								<table>
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Item One</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Two</td>
-											<td>Vis ac commodo adipiscing arcu aliquet.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Three</td>
-											<td> Morbi faucibus arcu accumsan lorem.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Four</td>
-											<td>Vitae integer tempus condimentum.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Five</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="2"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-
-							<h5>Alternate</h5>
-							<div class="table-wrapper">
-								<table class="alt">
-									<thead>
-										<tr>
-											<th>Name</th>
-											<th>Description</th>
-											<th>Price</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Item One</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Two</td>
-											<td>Vis ac commodo adipiscing arcu aliquet.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Three</td>
-											<td> Morbi faucibus arcu accumsan lorem.</td>
-											<td>29.99</td>
-										</tr>
-										<tr>
-											<td>Item Four</td>
-											<td>Vitae integer tempus condimentum.</td>
-											<td>19.99</td>
-										</tr>
-										<tr>
-											<td>Item Five</td>
-											<td>Ante turpis integer aliquet porttitor.</td>
-											<td>29.99</td>
-										</tr>
-									</tbody>
-									<tfoot>
-										<tr>
-											<td colspan="2"></td>
-											<td>100.00</td>
-										</tr>
-									</tfoot>
-								</table>
-							</div>
-						</section>
-
-						<section>
-							<h4>Buttons</h4>
-							<ul class="actions">
-								<li><a href="#" class="button special">Special</a></li>
-								<li><a href="#" class="button">Default</a></li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button big">Big</a></li>
-								<li><a href="#" class="button">Default</a></li>
-								<li><a href="#" class="button small">Small</a></li>
-							</ul>
-							<ul class="actions fit">
-								<li><a href="#" class="button special fit">Fit</a></li>
-								<li><a href="#" class="button fit">Fit</a></li>
-							</ul>
-							<ul class="actions fit small">
-								<li><a href="#" class="button special fit small">Fit + Small</a></li>
-								<li><a href="#" class="button fit small">Fit + Small</a></li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#" class="button special icon fa-download">Icon</a></li>
-								<li><a href="#" class="button icon fa-download">Icon</a></li>
-							</ul>
-							<ul class="actions">
-								<li><span class="button special disabled">Special</span></li>
-								<li><span class="button disabled">Default</span></li>
-							</ul>
-						</section>
-
-						<section>
-							<h4>Form</h4>
-							<form method="post" action="#">
-								<div class="row uniform 50%">
-									<div class="6u 12u$(xsmall)">
-										<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-									</div>
-									<div class="6u$ 12u$(xsmall)">
-										<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-									</div>
-									<div class="12u$">
-										<div class="select-wrapper">
-											<select name="demo-category" id="demo-category">
-												<option value="">- Category -</option>
-												<option value="1">Manufacturing</option>
-												<option value="1">Shipping</option>
-												<option value="1">Administration</option>
-												<option value="1">Human Resources</option>
-											</select>
-										</div>
-									</div>
-									<div class="4u 12u$(small)">
-										<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-										<label for="demo-priority-low">Low Priority</label>
-									</div>
-									<div class="4u 12u$(small)">
-										<input type="radio" id="demo-priority-normal" name="demo-priority">
-										<label for="demo-priority-normal">Normal Priority</label>
-									</div>
-									<div class="4u$ 12u(small)">
-										<input type="radio" id="demo-priority-high" name="demo-priority">
-										<label for="demo-priority-high">High Priority</label>
-									</div>
-									<div class="6u 12u$(small)">
-										<input type="checkbox" id="demo-copy" name="demo-copy">
-										<label for="demo-copy">Email me a copy of this message</label>
-									</div>
-									<div class="6u$ 12u$(small)">
-										<input type="checkbox" id="demo-human" name="demo-human" checked>
-										<label for="demo-human">I am a human and not a robot</label>
-									</div>
-									<div class="12u$">
-										<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-									</div>
-									<div class="12u$">
-										<ul class="actions">
-											<li><input type="submit" value="Send Message" class="special" /></li>
-											<li><input type="reset" value="Reset" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
-						</section>
-
-						<section>
-							<h4>Image</h4>
-							<h5>Fit</h5>
-							<div class="box alt">
-								<div class="row 50% uniform">
-									<div class="12u$"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-									<div class="4u$"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/04.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/05.jpg" alt="" /></span></div>
-									<div class="4u$"><span class="image fit"><img src="images/thumbs/06.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
-									<div class="4u"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
-									<div class="4u$"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
-								</div>
-							</div>
-							<h5>Left &amp; Right</h5>
-							<p><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-							<p><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-						</section>
-
-					</section>
-				-->
-
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<ul class="icons">
-						<li>
-						<a href="https://www.linkedin.com/in/akandola/" class="icon fa-linkedin" style="color:white"><span class="label">LinkedIn</span>
-						</a>
-						</li>
-					</ul>
-					<ul class="copyright">
-					</ul>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-
-			<script>
-				function openTab(evt, cityName) {
-				  var i, tabcontent, tablinks;
-				  tabcontent = document.getElementsByClassName("tabcontent");
-				  for (i = 0; i < tabcontent.length; i++) {
-					tabcontent[i].style.display = "none";
-				  }
-				  tablinks = document.getElementsByClassName("tablinks");
-				  for (i = 0; i < tablinks.length; i++) {
-					tablinks[i].className = tablinks[i].className.replace(" active", "");
-				  }
-				  document.getElementById(cityName).style.display = "block";
-				  evt.currentTarget.className += " active";
-				}
-
-				function openDanceTab(evt, cityName) {
-				  var i, tabcontent, tablinks;
-				  tabcontent = document.getElementsByClassName("tabDanceContent");
-				  for (i = 0; i < tabcontent.length; i++) {
-					tabcontent[i].style.display = "none";
-				  }
-				  tablinks = document.getElementsByClassName("tabDanceLinks");
-				  for (i = 0; i < tablinks.length; i++) {
-					tablinks[i].className = tablinks[i].className.replace(" active", "");
-				  }
-				  document.getElementById(cityName).style.display = "block";
-				  evt.currentTarget.className += " active";
-				}
-
-				document.getElementById("defaultOpenOuter").click();
-				document.getElementById("defaultOpenInner").click();
-			</script>
-			
-	</body>
+</body>
 </html>
