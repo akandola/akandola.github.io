@@ -364,6 +364,35 @@
       text-wrap: pretty;
       max-width: 800px;
     }
+    .about-row--top { align-items: start; }
+    .edu-list { display: flex; gap: 32px; flex-wrap: wrap; padding-top: 4px; }
+    .edu-item { display: flex; align-items: center; gap: 14px; }
+    .edu-crest-wrap {
+      width: 52px; height: 52px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .edu-crest { max-width: 52px; max-height: 52px; object-fit: contain; display: block; }
+    .edu-details { display: flex; flex-direction: column; gap: 3px; }
+    .edu-degree {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .edu-school {
+      font-family: var(--display);
+      font-size: 20px;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .edu-year {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--muted-2);
+    }
 
     /* ── Lane ── */
     .lane {
@@ -715,6 +744,31 @@
       <span class="about-margin">Joy</span>
       <p class="about-para">For fun, I curate playlists and chase new music, watch F1, play basketball, and choreograph and dance bhangra. I&rsquo;m always hunting for the best dairy-free pizza in any city I land in, listening to history and tech podcasts, and making memento boxes &mdash; keepsakes, photo books, and odds and ends to capture each year.</p>
     </div>
+    <div class="about-row about-row--top">
+      <span class="about-margin">Education</span>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-crest-wrap">
+            <img src="images/thumbs/work_logos/hbs_logo.png" alt="Harvard Business School" class="edu-crest">
+          </div>
+          <div class="edu-details">
+            <span class="edu-degree">MBA</span>
+            <span class="edu-school">Harvard Business School</span>
+            <span class="edu-year">2024 &ndash; 2026</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-crest-wrap">
+            <img src="images/thumbs/work_logos/columbia_logo.jpg" alt="Columbia University" class="edu-crest">
+          </div>
+          <div class="edu-details">
+            <span class="edu-degree">BA Computer Science</span>
+            <span class="edu-school">Columbia University</span>
+            <span class="edu-year">2015 &ndash; 2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Work Lane -->
@@ -806,18 +860,18 @@
   // ── Content data ─────────────────────────────────────────────────────────
   const ITEMS = [
     // Work & Product
-    { id:"saife",      cat:"work", year:"2026",    title:"SAIFE",                    sub:"CPO & Co-Founder",                     blurb:"Building SAIFE — currently in stealth-ish mode. Product launching soon.",                                                                                                                                      url:"https://saifein.com/",                                                                                                     thumb:"images/thumbs/work_logos/saife_logo.png",         logo:true, featured:true },
+    { id:"saife",      cat:"work", year:"2026",    title:"SAIFE",                    sub:"CPO & Co-Founder",                     blurb:"Building SAIFE — currently in stealth-ish mode. Product launching soon.",                                                                                                                                      url:"https://saifein.com/",                                                                                                     thumb:"images/thumbs/work_logos/saife_logo.png",         logo:true, thumbBg:"#1A1714", featured:true },
     { id:"substack",   cat:"work", year:"2026",    title:"Founder Journal",           sub:"Substack",                             blurb:"Writing about the early SAIFE journey, fundraising, and the messy middle of company-building.",                                                                                                              url:"https://substack.com/@anmolkandola",                                                                                       thumb:null },
     { id:"ask",        cat:"work", year:"2026",    title:"ASK MBA Consulting",        sub:"Founder · Coming Soon",                blurb:"MBA admissions consulting — helping applicants craft authentic, standout candidacies. Launching soon.",                                                                                                       url:"https://askmbaconsulting.com/",                                                                                             thumb:null,                                              comingSoon:true },
-    { id:"lifex",      cat:"work", year:"2025",    title:"LifeX Ventures",            sub:"MBA Fellow",                           blurb:"Sourced and diligenced early-stage healthcare and life-sciences investments alongside the LifeX team while at HBS.",                                                                                        url:"https://www.lifex.vc/",                                                                                                    thumb:"images/thumbs/work_logos/lifex_logo.svg",  logo:true },
-    { id:"jimini",     cat:"work", year:"2025",    title:"Jimini Health",             sub:"Product & GTM Intern",                 blurb:"Led end-to-end launch of Group Scribe — owning ML training strategy, UX, eng collaboration, and GTM. Closed an enterprise contract with a clinical practice serving 150K+ patients annually.",              url:"https://jiminihealth.com/",                                                                                                 thumb:"images/thumbs/work_logos/jimini_logo.png", logo:true },
-    { id:"justicia",   cat:"work", year:"2023–24", title:"Justicia Lab",              sub:"PM Rotation",                          blurb:"Converted a wage-reclamation tool prospect into a paid pilot; enabled adoption of a universal case-intake tool at Catholic Charities Houston (85K people/yr).",                                             url:"https://www.justicialab.org/",                                                                                              thumb:"images/thumbs/work_logos/justicialab_logo.png", logo:true },
-    { id:"schmidt",    cat:"work", year:"2022–24", title:"Schmidt Futures",           sub:"Technologists for Global Transformation", blurb:"Selected for the 2022 cohort of the rotational PM program — placed across Justicia Lab, Conservation X Labs, and Uno Health on social-impact products.",                                              url:"https://schmidtfutures.com/",                                                                                               thumb:"images/thumbs/work_logos/sf_logo.png",      logo:true },
-    { id:"cxl",        cat:"work", year:"2023",    title:"Conservation X Labs",       sub:"PM Rotation",                          blurb:"Synthesized requirements for a portable molecular development kit through outreach to 62 labs; accelerated rapid-DNA test deployment by sourcing 5 international manufacturers.",                           url:"https://conservationxlabs.com/the-nabit",                                                                                  thumb:"images/thumbs/work_logos/cxl_logo.png",     logo:true },
-    { id:"uno",        cat:"work", year:"2022–23", title:"Uno Health",                sub:"PM Rotation",                          blurb:"Launched with Elevance Health into MO and WI — capturing 4% (1.2M members) of the Medicare Advantage market and realizing $2M in member savings.",                                                        url:"https://www.unohealth.com/",                                                                                                thumb:"images/thumbs/work_logos/unohealth_logo.png",logo:true },
-    { id:"elise",      cat:"work", year:"2021–22", title:"EliseAI",                   sub:"Associate Product Manager",            blurb:"Spearheaded a Knock-CRM integration (1M+ units) — +20% prospect engagement across 43 properties in 3 months. Launched in-house CRM that converted +14% leads-to-tours.",                                  url:"https://www.eliseai.com/",                                                                                                  thumb:"images/thumbs/work_logos/eliseai_logo.png", logo:true },
-    { id:"amazon",     cat:"work", year:"2019–21", title:"Amazon",                    sub:"Software Development Engineer",        blurb:"Eliminated 100K weekly catalog inaccuracies and lifted automated corrections 30% by streamlining validation and logging. Sustained a 10% peak-traffic increase through Q4 2020.",                          url:"https://www.amazon.com/",                                                                                                   thumb:"images/thumbs/work_logos/amazon_logo.png",  logo:true },
-    { id:"stanford",   cat:"work", year:"2016",    title:"Stanford Biology Research", sub:"Co-author · Neural Circuits",          blurb:"Co-authored research on neural circuits driving motivated behavior — designed experiments, performed mouse surgeries, showed the role of the PVT in Pavlovian learning.",                                    url:"https://drive.google.com/file/d/0B1SBs_ZVIKo7ZkhWMm5nLW1Ea0U/view?resourcekey=0-Mw-x-UoTQwhyTNcnLE5Z_A",               thumb:null },
+    { id:"lifex",      cat:"work", year:"2025",    title:"LifeX Ventures",            sub:"MBA Fellow",                           blurb:"Sourced and diligenced early-stage healthcare and life-sciences investments alongside the LifeX team while at HBS.",                                                                                        url:"https://www.lifex.vc/",                                                                                                    thumb:"images/thumbs/work_logos/lifex_logo.jpeg",  logo:true, thumbBg:"#FFFFFF" },
+    { id:"jimini",     cat:"work", year:"2025",    title:"Jimini Health",             sub:"Product & GTM Intern",                 blurb:"Led end-to-end launch of Group Scribe — owning ML training strategy, UX, eng collaboration, and GTM. Closed an enterprise contract with a clinical practice serving 150K+ patients annually.",              url:"https://jiminihealth.com/",                                                                                                 thumb:"images/thumbs/work_logos/jimini_logo.png",  logo:true, thumbBg:"#FFFFFF" },
+    { id:"justicia",   cat:"work", year:"2023–24", title:"Justicia Lab",              sub:"PM Rotation",                          blurb:"Converted a wage-reclamation tool prospect into a paid pilot; enabled adoption of a universal case-intake tool at Catholic Charities Houston (85K people/yr).",                                             url:"https://www.justicialab.org/",                                                                                              thumb:"images/thumbs/work_logos/justicialab_logo.png", logo:true, thumbBg:"#1A1714" },
+    { id:"schmidt",    cat:"work", year:"2022–24", title:"Schmidt Futures",           sub:"Technologists for Global Transformation", blurb:"Selected for the 2022 cohort of the rotational PM program — placed across Justicia Lab, Conservation X Labs, and Uno Health on social-impact products.",                                              url:"https://schmidtfutures.com/",                                                                                               thumb:"images/thumbs/work_logos/sf_logo.png",      logo:true, thumbBg:"#FFFFFF" },
+    { id:"cxl",        cat:"work", year:"2023",    title:"Conservation X Labs",       sub:"PM Rotation",                          blurb:"Synthesized requirements for a portable molecular development kit through outreach to 62 labs; accelerated rapid-DNA test deployment by sourcing 5 international manufacturers.",                           url:"https://conservationxlabs.com/the-nabit",                                                                                  thumb:"images/thumbs/work_logos/cxl_logo.png",     logo:true, thumbBg:"#FFFFFF" },
+    { id:"uno",        cat:"work", year:"2022–23", title:"Uno Health",                sub:"PM Rotation",                          blurb:"Launched with Elevance Health into MO and WI — capturing 4% (1.2M members) of the Medicare Advantage market and realizing $2M in member savings.",                                                        url:"https://www.unohealth.com/",                                                                                                thumb:"images/thumbs/work_logos/uno-health_logo.jpeg", logo:true, thumbBg:"#FFFFFF" },
+    { id:"elise",      cat:"work", year:"2021–22", title:"EliseAI",                   sub:"Associate Product Manager",            blurb:"Spearheaded a Knock-CRM integration (1M+ units) — +20% prospect engagement across 43 properties in 3 months. Launched in-house CRM that converted +14% leads-to-tours.",                                  url:"https://www.eliseai.com/",                                                                                                  thumb:"images/thumbs/work_logos/eliseai_logo.png", logo:true, thumbBg:"#1A1714" },
+    { id:"amazon",     cat:"work", year:"2019–21", title:"Amazon",                    sub:"Software Development Engineer",        blurb:"Eliminated 100K weekly catalog inaccuracies and lifted automated corrections 30% by streamlining validation and logging. Sustained a 10% peak-traffic increase through Q4 2020.",                          url:"https://www.amazon.com/",                                                                                                   thumb:"images/thumbs/work_logos/amazon_logo.png",  logo:true, thumbBg:"#FFFFFF" },
+    { id:"stanford",   cat:"work", year:"2016",    title:"Stanford Biology Research", sub:"Co-author · Neural Circuits",          blurb:"Co-authored research on neural circuits driving motivated behavior — designed experiments, performed mouse surgeries, showed the role of the PVT in Pavlovian learning.",                                    url:"https://drive.google.com/file/d/0B1SBs_ZVIKo7ZkhWMm5nLW1Ea0U/view?resourcekey=0-Mw-x-UoTQwhyTNcnLE5Z_A",               thumb:"images/thumbs/work_logos/stanford_logo.jpg", logo:true, thumbBg:"#FFFFFF" },
 
     // Bhangra & Dance
     { id:"sangeet-25", cat:"dance", year:"2025", title:"Samir & Ashu's Sangeet",      sub:"Choreographed performance",  blurb:"Sangeet performance, August 2025.",                                                                                           url:"https://youtu.be/KP-Jlez3qDo",                           thumb:"images/thumbs/dance_vids/sangeet-25-thumbnail.jpg",               featured:true },
@@ -856,11 +910,13 @@
     const isLogo  = !!item.logo;
     const isVideo = cat === "dance" && item.thumb;
     const hasBg   = !!item.thumb;
-    const thumbBg = (hasBg && isLogo)
-      ? "#1A1714"
-      : hasBg
-        ? "transparent"
-        : `color-mix(in oklch, ${tone} 80%, #1A1714)`;
+    const thumbBg = item.thumbBg
+      ? item.thumbBg
+      : (hasBg && isLogo)
+        ? "#1A1714"
+        : hasBg
+          ? "transparent"
+          : `color-mix(in oklch, ${tone} 80%, #1A1714)`;
 
     const thumbContent = hasBg
       ? `<img src="${esc(item.thumb)}" alt="" class="${isLogo ? "thumb-contain" : "thumb-cover"}" onerror="this.style.display='none'">`
