@@ -368,30 +368,25 @@
     .edu-list { display: flex; gap: 32px; flex-wrap: wrap; padding-top: 4px; }
     .edu-item { display: flex; align-items: center; gap: 14px; }
     .edu-crest-wrap {
-      width: 52px; height: 52px;
+      width: 48px; height: 48px;
       flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
     }
-    .edu-crest { max-width: 52px; max-height: 52px; object-fit: contain; display: block; }
+    .edu-crest { width: 48px; height: 48px; object-fit: contain; display: block; }
     .edu-details { display: flex; flex-direction: column; gap: 3px; }
     .edu-degree {
       font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--ink);
     }
     .edu-school {
       font-family: var(--display);
       font-size: 20px;
       color: var(--ink);
       line-height: 1.1;
-    }
-    .edu-year {
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.08em;
-      color: var(--muted-2);
     }
 
     /* ── Lane ── */
@@ -754,17 +749,15 @@
           <div class="edu-details">
             <span class="edu-degree">MBA</span>
             <span class="edu-school">Harvard Business School</span>
-            <span class="edu-year">2024 &ndash; 2026</span>
           </div>
         </div>
         <div class="edu-item">
           <div class="edu-crest-wrap">
-            <img src="images/thumbs/work_logos/columbia_logo.jpg" alt="Columbia University" class="edu-crest">
+            <img src="images/thumbs/work_logos/columbia_logo.png" alt="Columbia University" class="edu-crest">
           </div>
           <div class="edu-details">
             <span class="edu-degree">BA Computer Science</span>
             <span class="edu-school">Columbia University</span>
-            <span class="edu-year">2015 &ndash; 2019</span>
           </div>
         </div>
       </div>
