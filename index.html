@@ -368,11 +368,12 @@
     .edu-list { display: flex; gap: 32px; flex-wrap: wrap; padding-top: 4px; }
     .edu-item { display: flex; align-items: center; gap: 14px; }
     .edu-crest-wrap {
-      width: 48px; height: 48px;
+      height: 64px;
       flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
     }
-    .edu-crest { width: 48px; height: 48px; object-fit: contain; display: block; }
+    .edu-crest { max-height: 64px; max-width: 64px; width: auto; height: auto; object-fit: contain; display: block; }
+    .edu-crest--wide { max-width: 130px; }
     .edu-details { display: flex; flex-direction: column; gap: 3px; }
     .edu-degree {
       font-family: var(--mono);
@@ -744,7 +745,7 @@
       <div class="edu-list">
         <div class="edu-item">
           <div class="edu-crest-wrap">
-            <img src="images/thumbs/work_logos/hbs_logo.png" alt="Harvard Business School" class="edu-crest">
+            <img src="images/thumbs/work_logos/hbs_logo.png" alt="Harvard Business School" class="edu-crest edu-crest--wide">
           </div>
           <div class="edu-details">
             <span class="edu-degree">MBA</span>
