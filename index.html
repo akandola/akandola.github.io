@@ -632,6 +632,42 @@
       text-transform: uppercase;
     }
 
+    /* ── Lightbox ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 8, 6, 0.94);
+      z-index: 900;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox-img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 32px 80px -16px rgba(0,0,0,0.7);
+      cursor: default;
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.22); }
+
     /* ── Responsive ── */
     @media (max-width: 900px) {
       .site-nav { padding: 16px 24px; }
@@ -813,6 +849,12 @@
     <div class="lane-track" id="community-track"></div>
   </section>
 
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+  </div>
+
   <!-- Contact -->
   <section id="contact" class="contact-section" style="scroll-margin-top:80px">
     <div class="section-head">
@@ -868,7 +910,7 @@
     { id:"tagup",      cat:"work", year:"2017",    title:"Tagup",                     sub:"Backend SWE Intern",                   blurb:"Designed and implemented a Node.js backend API controlling full application functionality. Reformatted MongoDB and InfluxDB data to trigger AWS alerts; built 5 hierarchical user permission types; rendered live sensor data from 15 industrial machines across MA and FL.",        url:"https://tagup.ai/",                                                                                                         thumb:"images/thumbs/work_logos/tagup_logo.png",   logo:true, thumbBg:"#101940" },
     { id:"stanford",   cat:"work", year:"2016",    title:"Stanford Biology Research", sub:"Co-author · Neural Circuits",          blurb:"Co-authored research on neural circuits driving motivated behavior — designed experiments, performed mouse surgeries, showed the role of the PVT in Pavlovian learning.",                                    url:"https://drive.google.com/file/d/0B1SBs_ZVIKo7ZkhWMm5nLW1Ea0U/view?resourcekey=0-Mw-x-UoTQwhyTNcnLE5Z_A",               thumb:"images/thumbs/work_logos/stanford_composite.jpg" },
     { id:"halassa",    cat:"work", year:"2015",    title:"Halassa Lab",               sub:"Research Intern · NYU Langone",        blurb:"Neuroscience research at the Halassa Lab, NYU Langone Medical Center — studying thalamocortical circuits and their role in cognitive function and working memory.",                                         url:"https://halassalab.tufts.edu/",                                                                                             thumb:"images/thumbs/halassa_lab_2015_pic.jpg" },
-    { id:"isef",       cat:"work", year:"2013–15", title:"SUNY Downstate Research",    sub:"Researcher",                           blurb:"Intel ISEF 2nd Grand Award in Animal Sciences. Created a NetLogo program to identify memory-encoding neurons by quantifying confocal images of hippocampal neurons stained for chromatin, PARP-1, and PAR. Identified PARP-1 as a novel marker for learning-associated changes in mice.",  url:"images/fulls/board.jpg",                                                                                                    thumb:"images/thumbs/work_logos/suny_composite.jpg" },
+    { id:"isef",       cat:"work", year:"2013–15", title:"SUNY Downstate Research",    sub:"Researcher",                           blurb:"Intel ISEF 2nd Grand Award in Animal Sciences. Created a NetLogo program to identify memory-encoding neurons by quantifying confocal images of hippocampal neurons stained for chromatin, PARP-1, and PAR. Identified PARP-1 as a novel marker for learning-associated changes in mice.",  url:null, lightbox:"images/fulls/board.jpg",                                                                                     thumb:"images/thumbs/work_logos/suny_composite.jpg" },
 
     // Bhangra & Dance
     { id:"sangeet-25", cat:"dance", year:"2025", title:"Samir & Ashu's Sangeet",      sub:"Choreographed performance",  blurb:"Sangeet performance, August 2025.",                                                                                           url:"https://youtu.be/KP-Jlez3qDo",                           thumb:"images/thumbs/dance_vids/sangeet-25-thumbnail.jpg",               featured:true },
@@ -924,16 +966,18 @@
     const soonHTML     = item.comingSoon ? `<span class="badge badge-soon">Coming Soon</span>` : "";
 
     const tag  = item.url ? "a" : "div";
-    const attr = item.url ? ` href="${esc(item.url)}" target="_blank" rel="noreferrer"` : "";
+    const attr = item.url    ? ` href="${esc(item.url)}" target="_blank" rel="noreferrer"`
+               : item.lightbox ? ` onclick="openLightbox('${esc(item.lightbox)}')" style="cursor:pointer"`
+               : ` style="cursor:default"`;
 
-    return `<${tag}${attr} class="card" style="background:${tone}" ${!item.url ? 'style="cursor:default"' : ""}>
+    return `<${tag}${attr} class="card" style="background:${tone}">
       <div class="card-thumb" style="background:${thumbBg}">
         ${thumbContent}${playHTML}${featuredHTML}${soonHTML}
       </div>
       <div class="card-body">
         <div class="card-top-row">
           <span class="card-year">${esc(item.year)}</span>
-          <span class="card-arrow">${item.url ? "&#8599;" : ""}</span>
+          <span class="card-arrow">${(item.url || item.lightbox) ? "&#8599;" : ""}</span>
         </div>
         <h3 class="card-title">${esc(item.title)}</h3>
         <div class="card-sub">${esc(item.sub)}</div>
@@ -955,6 +999,18 @@
     const el = document.getElementById(trackId);
     if (el) el.scrollBy({ left: dir * 520, behavior: "smooth" });
   }
+
+  // ── Lightbox ─────────────────────────────────────────────────────────────
+  function openLightbox(src) {
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
 
   // ── Active nav via IntersectionObserver ──────────────────────────────────
   (function() {
